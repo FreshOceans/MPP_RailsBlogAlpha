@@ -1,0 +1,13 @@
+<%= form_with url: login_path do |form| %>
+
+    <div class="actions">
+
+         <!-- username, password -->
+        <%= label :username, "Username", class: "data-label" %>: <%= form.text_field :username, id: "username", class: "data-value" %><br />
+        <%= label :password, "Password", class: "data-label" %>: <%= form.password_field :password, id: "password", class: "data-value" %><br />
+        <%= form.submit "Log In", class: "submit_btn" %>
+        <p>New user? <%= link_to 'New User', new_user_path %></p>
+
+    </div>
+
+<% end %>

@@ -8,9 +8,6 @@ Rails.application.routes.draw do
   post "/login" => "users#login"
   get "/logout" => "users#logout"
 
-
-
-
   # == RESTful routes
   # resources :tags
   # resources :post_tags

@@ -4,7 +4,10 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
+    puts "\n******** index ********"
     @posts = Post.all
+    puts "\n******** @post, #{@posts} ********"
+
   end
 
   # GET /posts/1
@@ -14,6 +17,7 @@ class PostsController < ApplicationController
 
   # GET /posts/new
   def new
+    puts "\n******** new post ********"
     @post = Post.new
   end
 
@@ -24,6 +28,7 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
+    puts "\n******** create post ********"
     @post = Post.new(post_params)
 
     respond_to do |format|
@@ -40,6 +45,7 @@ class PostsController < ApplicationController
   # PATCH/PUT /posts/1
   # PATCH/PUT /posts/1.json
   def update
+    puts "\n******** update post ********"
     respond_to do |format|
       if @post.update(post_params)
         format.html { redirect_to @post, notice: 'Post was successfully updated.' }
@@ -54,6 +60,7 @@ class PostsController < ApplicationController
   # DELETE /posts/1
   # DELETE /posts/1.json
   def destroy
+    puts "\n******** delete post ********"
     @post.destroy
     respond_to do |format|
       format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }

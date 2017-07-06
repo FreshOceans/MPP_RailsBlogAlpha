@@ -22,7 +22,7 @@ class PostsController < ApplicationController
   def new
     puts "\n******** new post ********"
     @post = Post.new
-    @user = User.find(params[:user_id])
+    @user = User.find(session[:user_id])
     puts "*** @user.inspect: #{@user.inspect} ***"
   end
 
@@ -42,10 +42,10 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to @post, notice: 'Post was successfully created.' }
+        format.html { redirect_to user_path(params[:user_id]), notice: 'Post was successfully created.' }
         format.json { render :show, status: :created, location: @post }
       else
-        format.html { render :new }
+        format.html { redirect_to new_user_post_path(params[:user_id]), notice: 'Post update failed.'  }
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end
     end
@@ -86,6 +86,6 @@ class PostsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
         puts "\n******** post_params ********"
-        params.require(:post).permit(:title, :content, :user_id)
+        params.require(:post).permit(:user_id, :title, :content)
     end
 end

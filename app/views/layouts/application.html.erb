@@ -11,6 +11,10 @@
   <body>
 
     <!-- == header == -->
+    <!-- = menu = -->
+    <div id="menu_container">
+        <%= render :partial => "/users/menu" %>
+    </div>
 
     <!-- == yield == -->
     <div id="yield" class="section">
@@ -23,6 +27,6 @@
             <p id="notice"> <%= notice %> </p>
         <% end %>
     </div>
-    
+
   </body>
 </html>

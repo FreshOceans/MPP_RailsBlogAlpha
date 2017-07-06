@@ -1,9 +1,13 @@
+<%= puts "*** USER #{@user.inspect} ***" %>
+<%= puts "*** POST #{@post.inspect} ***" %>
+
 <%= form_for([@user, @post]) do |form| %>
 
     <div class="actions">
         <!-- title, content -->
         <%= label :title, "Title", class: "data-label" %>: <%= form.text_field :title, id: "title", class: "data-value" %><br />
         <%= label :content, "Content", class: "data-label" %>: <%= form.text_area :content, id: "content", class: "data-value" %><br />
+        <input type="hidden" name="post[user_id]" value="<%= @user.id %>">
         <%= form.submit "Publish", class: "submit_btn" %>
     </div>
 

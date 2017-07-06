@@ -8,6 +8,7 @@ end
 # Additional Gems
 gem 'pg'
 gem 'rb-readline'
+gem 'pry-rails', group: [:development, :test]
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

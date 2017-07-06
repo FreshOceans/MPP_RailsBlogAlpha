@@ -2,5 +2,8 @@
 
 <%= render 'form', post: @post %>
 
-<%= link_to 'Show', @post %> |
-<%= link_to 'Back', posts_path %>
+<%= puts "*** @post.inspect: #{@post.inspect} ***" %>
+
+<%= puts "*** @user.inspect: #{@user.inspect} ***" %>
+
+<%= link_to 'Back', user_path(@user) %>

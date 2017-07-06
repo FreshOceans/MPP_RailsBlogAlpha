@@ -14,7 +14,7 @@ class UsersController < ApplicationController
       render :login_form
   end
 
-  # == GET /login
+  # == POST /login
   def login
       puts "\n******** login ********"
       @user = User.where(username: params[:username]).first
@@ -58,6 +58,12 @@ class UsersController < ApplicationController
   def index
     puts "\n******** index ********"
     @users = User.all
+    # binding.pry
+    # begin
+    #     puts "@user.fname: #{@user.fname}"
+    # rescue => e
+    #     puts "***** Error: #{e} *****"
+    # end
   end
 
   # GET /users/1

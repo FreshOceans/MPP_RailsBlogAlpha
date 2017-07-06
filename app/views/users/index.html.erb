@@ -11,9 +11,14 @@
     <% @users.each do |user| %>
       <tr>
         <td><%= link_to user.username, user_path(user.id) %> </td>
+        <% posts = user.posts %>
+        <% posts.each do |post| %>
+            <td><%= link_to post.title, user_post_path(user, post) %> </td>
+        <% end %>
+
         <td><%= link_to 'Edit', edit_user_path(user) %></td>
         <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    </tr>
     <% end %>
   </tbody>
 </table>

@@ -1,23 +1,10 @@
-<%= form_with(model: post, local: true) do |form| %>
-  <% if post.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+<%= form_for([@user, @post]) do |form| %>
 
-      <ul>
-      <% post.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+    <div class="actions">
+        <!-- title, content -->
+        <%= label :title, "Title", class: "data-label" %>: <%= form.text_field :title, id: "title", class: "data-value" %><br />
+        <%= label :content, "Content", class: "data-label" %>: <%= form.text_area :content, id: "content", class: "data-value" %><br />
+        <%= form.submit "Publish", class: "submit_btn" %>
     </div>
-  <% end %>
 
-  <div class="actions">
-     <% form_for([@user, @post]) do |f| %>
-     <%= label :title, "Title", class: "data-label" %>: <%= form.text_field :title, id: "title", class: "data-value" %><br />
-     <%= label :content, "Content", class: "data-label" %>: <%= form.text_field :content, id: "content", class: "data-value" %><br />
-    <div>
-        <input type="hidden" name="post[user_id]" value="<% @user.id %>"
-    </div>
-    <%= form.submit "Publish" %>
-  </div>
 <% end %>

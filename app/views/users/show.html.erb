@@ -1,13 +1,11 @@
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
-
+<%= link_to 'New Post', new_user_post_path(@user, @post) %>
 
 <p><%= @user.fname + " " + @user.lname %></p>
 
-
 <% @posts.each do |post| %>
-    <%= link_to post.title, edit_user_post_path(@user, post) %>
-    <%= post.comment %>
-<%end%>
-
-<%= link_to 'Posts', user_posts_path(@user) %>
+    <%= link_to 'Edit', edit_user_post_path(@user, post) %> |
+    <p> <%= post.title %> </p>
+    <p> <%= post.content %> </p>
+<% end %>

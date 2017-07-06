@@ -13,17 +13,24 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
+    puts "\n******** show posts ********"
+    puts "\n*** params.inspect: #{params.inspect} ***"
+    @user = User.find(params[:user_id])
   end
 
   # GET /posts/new
   def new
     puts "\n******** new post ********"
     @post = Post.new
-    @user - User.find(params[:user_id])
+    @user = User.find(params[:user_id])
+    puts "*** @user.inspect: #{@user.inspect} ***"
   end
 
   # GET /posts/1/edit
   def edit
+    puts "\n******** edit post ********"
+    @user = User.find(params[:user_id])
+    puts "*** @user.inspect: #{@user.inspect} ***"
   end
 
   # POST /posts

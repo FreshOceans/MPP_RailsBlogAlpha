@@ -1,0 +1,32 @@
+<!-- Code Dump -->
+
+
+<!-- FORMS ON FORMS ON FORMS -->
+
+<%= label :title, "Title", class: "data-label" %>: <%= form.text_field :title, id: "title", class: "data-value" %><br />
+<%= label :content, "Content", class: "data-label" %>: <%= form.text_field :content, id: "content", class: "data-value" %><br />
+
+
+
+<div class="actions">
+    <% form_for([@user, @post]) do |form| %>
+        <!-- title, content -->
+        <%= form.text_field :title, id: "title", class: "data-value" %><br />
+        <%= form.text_field :content, id: "content", class: "data-value" %><br />
+            <input type="hidden" name="post[user_id]" value="<% @user.id %>"
+        <%= form.submit "Publish" %>
+    <% end %>
+</div>
+
+<%= form_with url: new_user_post_path do |form| %>
+
+    <div class="actions">
+
+        <!-- title, content -->
+        <%= label :title, "Title", class: "data-label" %>: <%= form.text_field :title, id: "title", class: "data-value" %><br />
+        <%= label :content, "Content", class: "data-label" %>: <%= form.text_field :content, id: "content", class: "data-value" %><br />
+        <%= form.submit "Publish", class: "submit_btn" %>
+
+    </div>
+
+<% end %>

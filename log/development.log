@@ -3635,3 +3635,404 @@ Processing by UsersController#show as HTML
 Completed 200 OK in 46ms (Views: 35.4ms | ActiveRecord: 0.5ms)
 
 
+Started GET "/users" for 127.0.0.1 at 2017-07-06 10:17:52 -0400
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (24.0ms)
+Completed 200 OK in 84ms (Views: 64.3ms | ActiveRecord: 7.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-07-06 10:17:57 -0400
+Processing by UsersController#home as HTML
+  Rendering users/home.html.erb within layouts/application
+  Rendered users/home.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 26ms (Views: 22.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-07-06 11:21:24 -0400
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#home as HTML
+  Rendering users/home.html.erb within layouts/application
+  Rendered users/home.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 267ms (Views: 240.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-07-06 11:25:22 -0400
+Processing by UsersController#home as HTML
+  Rendering users/home.html.erb within layouts/application
+  Rendered users/home.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 32ms (Views: 20.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-07-06 11:25:24 -0400
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (6.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (43.1ms)
+Completed 200 OK in 77ms (Views: 49.0ms | ActiveRecord: 19.6ms)
+
+
+Started GET "/users/8" for 127.0.0.1 at 2017-07-06 11:25:25 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 11]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 112ms (Views: 25.3ms | ActiveRecord: 15.4ms)
+
+
+Started GET "/users/8/posts" for 127.0.0.1 at 2017-07-06 11:25:27 -0400
+Processing by PostsController#index as HTML
+  Parameters: {"user_id"=>"8"}
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (26.5ms)
+Completed 500 Internal Server Error in 46ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"posts", :id=>"1", :user_id=>nil}, missing required keys: [:user_id]):
+    12:   <tbody>
+    13:     <% @posts.each do |post| %>
+    14:       <tr>
+    15:         <td><%= link_to 'Show', user_post_path(@user, post) %></td>
+    16:       </tr>
+    17:     <% end %>
+    18:   </tbody>
+  
+app/views/posts/index.html.erb:15:in `block in _app_views_posts_index_html_erb__2455463904352090930_70284073562680'
+app/views/posts/index.html.erb:13:in `_app_views_posts_index_html_erb__2455463904352090930_70284073562680'
+Started GET "/users/8" for 127.0.0.1 at 2017-07-06 11:25:30 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 11]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 35ms (Views: 26.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-07-06 11:25:33 -0400
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (24.7ms)
+Completed 200 OK in 61ms (Views: 55.8ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2017-07-06 11:25:34 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 11]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 53ms (Views: 28.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users/1/posts" for 127.0.0.1 at 2017-07-06 11:25:35 -0400
+Processing by PostsController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (1.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (9.1ms)
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 1.6ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"posts", :id=>"1", :user_id=>nil}, missing required keys: [:user_id]):
+    12:   <tbody>
+    13:     <% @posts.each do |post| %>
+    14:       <tr>
+    15:         <td><%= link_to 'Show', user_post_path(@user, post) %></td>
+    16:       </tr>
+    17:     <% end %>
+    18:   </tbody>
+  
+app/views/posts/index.html.erb:15:in `block in _app_views_posts_index_html_erb__2455463904352090930_70284089678340'
+app/views/posts/index.html.erb:13:in `_app_views_posts_index_html_erb__2455463904352090930_70284089678340'
+Started GET "/users/1" for 127.0.0.1 at 2017-07-06 11:25:41 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 11]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 39ms (Views: 31.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2017-07-06 11:27:46 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 11]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 29ms (Views: 21.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2017-07-06 11:27:48 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 11]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 29ms (Views: 21.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-07-06 11:27:50 -0400
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (16.6ms)
+Completed 200 OK in 57ms (Views: 49.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-07-06 11:27:51 -0400
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 27ms (Views: 23.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2017-07-06 11:27:53 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 11]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 54ms (Views: 35.1ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/users/1/posts" for 127.0.0.1 at 2017-07-06 11:27:54 -0400
+Processing by PostsController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (6.8ms)
+Completed 500 Internal Server Error in 34ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"edit", :controller=>"users", :format=>#<Post id: 1, user_id: 1, title: "First Post", content: "Lorem ipsum dolor sit amet, consectetur adipiscing...", img_src: nil, img_caption: nil, created_at: "2017-07-05 17:05:05", updated_at: "2017-07-05 17:05:05">, :id=>nil, :user_id=>"1"}, possible unmatched constraints: [:id]):
+    12:   <tbody>
+    13:     <% @posts.each do |post| %>
+    14:       <tr>
+    15:         <td> <%= link_to post.title, edit_user_path(@user, post) %> </td>
+    16:         <td> <%= post.comment %> </td>
+    17:       </tr>
+    18:     <% end %>
+  
+app/views/posts/index.html.erb:15:in `block in _app_views_posts_index_html_erb__2455463904352090930_70284089546120'
+app/views/posts/index.html.erb:13:in `_app_views_posts_index_html_erb__2455463904352090930_70284089546120'
+Started GET "/users/1" for 127.0.0.1 at 2017-07-06 11:27:58 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 11]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 40ms (Views: 32.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2017-07-06 11:30:18 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 11]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 1]]
+  Rendered users/show.html.erb within layouts/application (15.6ms)
+Completed 500 Internal Server Error in 30ms (ActiveRecord: 1.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `comment' for #<Post:0x007fd895f351e0>
+Did you mean?  comments
+               comments=
+               content):
+     7: 
+     8: <% @posts.each do |post| %>
+     9:     <%= link_to post.title, edit_user_post_path(@user, post) %>
+    10:     <%= post.comment %>
+    11: <%end%>
+    12: 
+    13: <%= link_to 'Posts', user_posts_path(@user) %>
+  
+app/views/users/show.html.erb:10:in `block in _app_views_users_show_html_erb___61489112251121203_70284102755540'
+app/views/users/show.html.erb:8:in `_app_views_users_show_html_erb___61489112251121203_70284102755540'
+Started GET "/users/1" for 127.0.0.1 at 2017-07-06 11:30:28 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 11]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 1]]
+  Rendered users/show.html.erb within layouts/application (16.2ms)
+Completed 500 Internal Server Error in 32ms (ActiveRecord: 1.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `comment' for #<Class:0x007fd895d6e410>):
+     7: 
+     8: <% @posts.each do |post| %>
+     9:     <%= link_to post.title, edit_user_post_path(@user, post) %>
+    10:     <%= Post.comment %>
+    11: <%end%>
+    12: 
+    13: <%= link_to 'Posts', user_posts_path(@user) %>
+  
+app/views/users/show.html.erb:10:in `block in _app_views_users_show_html_erb___61489112251121203_70284102789820'
+app/views/users/show.html.erb:8:in `_app_views_users_show_html_erb___61489112251121203_70284102789820'
+Started GET "/users/1" for 127.0.0.1 at 2017-07-06 11:30:29 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 11]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 1]]
+  Rendered users/show.html.erb within layouts/application (18.0ms)
+Completed 500 Internal Server Error in 60ms (ActiveRecord: 1.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `comment' for #<Class:0x007fd895d6e410>):
+     7: 
+     8: <% @posts.each do |post| %>
+     9:     <%= link_to post.title, edit_user_post_path(@user, post) %>
+    10:     <%= Post.comment %>
+    11: <%end%>
+    12: 
+    13: <%= link_to 'Posts', user_posts_path(@user) %>
+  
+app/views/users/show.html.erb:10:in `block in _app_views_users_show_html_erb___61489112251121203_70284121018560'
+app/views/users/show.html.erb:8:in `_app_views_users_show_html_erb___61489112251121203_70284121018560'
+Started GET "/users/1" for 127.0.0.1 at 2017-07-06 11:30:37 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 11]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 1]]
+  Rendered users/show.html.erb within layouts/application (14.2ms)
+Completed 500 Internal Server Error in 31ms (ActiveRecord: 1.4ms)
+
+
+  
+ActionView::Template::Error (undefined method `comment' for #<Post:0x007fd898230de8>
+Did you mean?  comments
+               comments=
+               content):
+     7: 
+     8: <% @posts.each do |post| %>
+     9:     <%= link_to post.title, edit_user_post_path(@user, post) %>
+    10:     <%= @post.comment %>
+    11: <%end%>
+    12: 
+    13: <%= link_to 'Posts', user_posts_path(@user) %>
+  
+app/views/users/show.html.erb:10:in `block in _app_views_users_show_html_erb___61489112251121203_70284102790880'
+app/views/users/show.html.erb:8:in `_app_views_users_show_html_erb___61489112251121203_70284102790880'
+Started GET "/users/1" for 127.0.0.1 at 2017-07-06 11:30:47 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 11]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 1]]
+  Rendered users/show.html.erb within layouts/application (15.8ms)
+Completed 500 Internal Server Error in 32ms (ActiveRecord: 1.7ms)
+
+
+  
+ActionView::Template::Error (undefined method `comment' for #<Post:0x007fd895f4c098>
+Did you mean?  comments
+               comments=
+               content):
+     7: 
+     8: <% @posts.each do |post| %>
+     9:     <%= link_to @post.title, edit_user_post_path(@user, post) %>
+    10:     <%= @post.comment %>
+    11: <%end%>
+    12: 
+    13: <%= link_to 'Posts', user_posts_path(@user) %>
+  
+app/views/users/show.html.erb:10:in `block in _app_views_users_show_html_erb___61489112251121203_70284102673940'
+app/views/users/show.html.erb:8:in `_app_views_users_show_html_erb___61489112251121203_70284102673940'
+Started GET "/users/1" for 127.0.0.1 at 2017-07-06 11:30:48 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 11]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 1]]
+  Rendered users/show.html.erb within layouts/application (14.6ms)
+Completed 500 Internal Server Error in 31ms (ActiveRecord: 1.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `comment' for #<Post:0x007fd8981d3148>
+Did you mean?  comments
+               comments=
+               content):
+     7: 
+     8: <% @posts.each do |post| %>
+     9:     <%= link_to @post.title, edit_user_post_path(@user, post) %>
+    10:     <%= @post.comment %>
+    11: <%end%>
+    12: 
+    13: <%= link_to 'Posts', user_posts_path(@user) %>
+  
+app/views/users/show.html.erb:10:in `block in _app_views_users_show_html_erb___61489112251121203_70284120819340'
+app/views/users/show.html.erb:8:in `_app_views_users_show_html_erb___61489112251121203_70284120819340'
+Started GET "/users/1" for 127.0.0.1 at 2017-07-06 11:31:44 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 11]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 1]]
+  Rendered users/show.html.erb within layouts/application (10.0ms)
+Completed 500 Internal Server Error in 25ms (ActiveRecord: 1.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `title' for #<Post::ActiveRecord_Associations_CollectionProxy:0x007fd895ec5318>):
+     6: 
+     7: 
+     8: <% @posts.each do |post| %>
+     9: <%= @posts.title %>
+    10: <% end %>
+    11: 
+    12: <%= link_to 'Posts', user_posts_path(@user) %>
+  
+app/views/users/show.html.erb:9:in `block in _app_views_users_show_html_erb___61489112251121203_70284120674100'
+app/views/users/show.html.erb:8:in `_app_views_users_show_html_erb___61489112251121203_70284120674100'
+Started GET "/users/1" for 127.0.0.1 at 2017-07-06 11:31:46 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 11]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 1]]
+  Rendered users/show.html.erb within layouts/application (11.0ms)
+Completed 500 Internal Server Error in 26ms (ActiveRecord: 1.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `title' for #<Post::ActiveRecord_Associations_CollectionProxy:0x007fd895e35d58>):
+     6: 
+     7: 
+     8: <% @posts.each do |post| %>
+     9: <%= @posts.title %>
+    10: <% end %>
+    11: 
+    12: <%= link_to 'Posts', user_posts_path(@user) %>
+  
+app/views/users/show.html.erb:9:in `block in _app_views_users_show_html_erb___61489112251121203_70284102137480'
+app/views/users/show.html.erb:8:in `_app_views_users_show_html_erb___61489112251121203_70284102137480'

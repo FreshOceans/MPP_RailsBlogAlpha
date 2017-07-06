@@ -19,6 +19,7 @@ class PostsController < ApplicationController
   def new
     puts "\n******** new post ********"
     @post = Post.new
+    @user - User.find(params[:user_id])
   end
 
   # GET /posts/1/edit
@@ -30,6 +31,7 @@ class PostsController < ApplicationController
   def create
     puts "\n******** create post ********"
     @post = Post.new(post_params)
+    puts "\n*** params.inspect: #{params.inspect} ***"
 
     respond_to do |format|
       if @post.save
@@ -76,6 +78,7 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.fetch(:post, {})
+        puts "\n******** post_params ********"
+        params.require(:post).permit(:title, :content, :user_id)
     end
 end

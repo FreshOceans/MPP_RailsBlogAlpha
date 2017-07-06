@@ -4,4 +4,10 @@
 
 <p><%= @user.fname + " " + @user.lname %></p>
 
+
+<% @posts.each do |post| %>
+    <%= link_to post.title, edit_user_post_path(@user, post) %>
+    <%= post.comment %>
+<%end%>
+
 <%= link_to 'Posts', user_posts_path(@user) %>

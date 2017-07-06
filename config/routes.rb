@@ -9,12 +9,13 @@ Rails.application.routes.draw do
   get "/logout" => "users#logout"
 
   # == RESTful routes
-  # resources :tags
+  resources :tags
   # resources :post_tags
 
   resources :users do
       resources :posts
       resources :comments
   end
+
 
 end

@@ -63,7 +63,11 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    puts "** @user.inspect, #{@user.inspect} **"
+    puts "*** @user.inspect, #{@user.inspect} ***"
+    @post = Post.new
+    @posts = @user.posts
+    puts "@user.fname: #{@user.fname}"
+    puts "*** @posts.inspect: #{@posts.inspect} ***"
   end
 
   # GET /users/new

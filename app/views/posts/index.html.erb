@@ -12,7 +12,7 @@
   <tbody>
     <% @posts.each do |post| %>
       <tr>
-        <td><%= link_to 'Show', user_post_path(params[:user_id], post) %></td>
+        <td><%= link_to 'Show', user_post_path(@user, post) %></td>
       </tr>
     <% end %>
   </tbody>

@@ -35,3 +35,13 @@
 
 format.html { redirect_to user_post_path(params[:user_id], params[:post_id]), notice: 'Comment was successfully created.' }
 {user_id: params[:user_id], id: params[:post_id]}
+
+
+
+
+MENU ITEMS
+        <!-- <%=# link_to 'Publish', new_user_post_path(user_id, post_id), class: "menu_item") %> -->
+
+        if session[user] !> 0
+            session[user] = nil
+        end

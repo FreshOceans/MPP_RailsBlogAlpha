@@ -1,9 +1,19 @@
 <!-- ======= views/menu ======= -->
 
 <div id="menu">
-    <a href="/"><div class="menu_item">Home</div></a>
-    <!-- <a href="/new_user_post"><div class="menu_item">Post</div></a> -->
-    <!-- <a href="/user_update"><div class="menu_item">edit profile</div></a>
-    <a href="/directory"><div class="menu_item">directory</div></a>
-    <a href="/signout"><div class="menu_item">sign out</div></a> -->
+
+    <% puts "**** session[:user_id]: #{session[:user_id]} ****" %>
+
+    <% if session[:user_id] %>
+        <%= link_to 'Home', "/", class: "menu_item" %>
+        <%= link_to 'Login', login_form_path, class: "menu_item" %>
+        <%= link_to 'Directory', users_path, class: "menu_item" %>
+        <%= link_to 'Profile', user_path(session[:user_id]), class: "menu_item" %>
+        <%= link_to 'Logout', logout_path, class: "menu_item" %>
+    <% else %>
+        <%= link_to 'Home', "/", class: "menu_item" %>
+        <%= link_to 'Login', login_form_path, class: "menu_item" %>
+        <%= link_to 'Register', new_user_path, class: "menu_item" %>
+    <% end %>
+
 </div>

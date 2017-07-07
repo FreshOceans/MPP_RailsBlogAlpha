@@ -16,6 +16,7 @@ class PostsController < ApplicationController
     puts "\n******** show posts ********"
     puts "\n*** params.inspect: #{params.inspect} ***"
     @user = User.find(params[:user_id])
+    @comment = Comment.new
   end
 
   # GET /posts/new

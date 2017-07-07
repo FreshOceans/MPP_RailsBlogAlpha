@@ -1,2 +1,7 @@
 <%= @post.title %> <br>
 <%= @post.content %>
+
+<% puts "**** @user.inspect: #{@user.inspect} ****" %>
+<% puts "**** @comment.inspect: #{@comment.inspect} ****" %>
+
+<%= render :partial => 'comments/form' %>

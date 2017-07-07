@@ -1,0 +1,18 @@
+<!--  -->
+
+<%= puts "*** @user: #{@user.inspect} ***" %>
+<%= puts "*** @post: #{@post.inspect} ***" %>
+<%= puts "*** @comment: #{@comment.inspect} ***" %>
+
+
+<%= form_for([@user, @comment]) do |form| %>
+
+    <div class="actions">
+        <!-- content -->
+        <%= label :content, "Content", class: "data-label" %>: <%= form.text_area :content, id: "content", class: "data-value" %><br />
+        <input type="hidden" name="comment[user_id]" value="<%= @user.id %>">
+        <input type="hidden" name="comment[post_id]" value="<%= @post.id %>">
+        <%= form.submit "Comment", class: "submit_btn" %>
+    </div>
+
+<% end %>

@@ -56,8 +56,9 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    puts "\n******** index ********"
+    puts "\n******** index_user ********"
     @users = User.all
+    @comment = Comment.new
     # binding.pry
     # begin
     #     puts "@user.fname: #{@user.fname}"
@@ -72,6 +73,7 @@ class UsersController < ApplicationController
     puts "*** @user.inspect, #{@user.inspect} ***"
     @post = Post.new
     @posts = @user.posts
+    # @comments = @user.comments
     puts "@user.fname: #{@user.fname}"
     puts "*** @posts.inspect: #{@posts.inspect} ***"
   end

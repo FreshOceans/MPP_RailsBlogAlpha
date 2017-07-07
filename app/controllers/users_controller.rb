@@ -73,7 +73,6 @@ class UsersController < ApplicationController
     puts "*** @user.inspect, #{@user.inspect} ***"
     @post = Post.new
     @posts = @user.posts
-    # @comments = @user.comments
     puts "@user.fname: #{@user.fname}"
     puts "*** @posts.inspect: #{@posts.inspect} ***"
   end

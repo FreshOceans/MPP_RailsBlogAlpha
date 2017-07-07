@@ -16,12 +16,12 @@ class CommentsController < ApplicationController
   # GET /comments/new
   def new
     puts "\n******** new_comment ********"
-    puts "\n*** params.inspect: #{params.inspect} ***"
+    puts "*** params.inspect: #{params.inspect} ***"
     @user = User.find(session[:user_id])
     # @post = Post.find(params[:post_id])
     @post1 = Post.new
-    puts "\n*** @comment.inspect: #{@comment.inspect} ***"
-    puts "\n*** @post1.inspect: #{@post1.inspect} ***"
+    puts "*** @comment.inspect: #{@comment.inspect} ***"
+    puts "*** @post1.inspect: #{@post1.inspect} ***"
   end
 
   # GET /comments/1/edit
@@ -33,10 +33,23 @@ class CommentsController < ApplicationController
   def create
     puts "\n******** create_comment ********"
     @comment = Comment.new(comment_params)
+    @user = User.find(session[:user_id])
+
+    # puts "\n**** params.inspect #{params.inspect}"
+    puts "**** params[:comment].inspect #{params[:comment].inspect}"
+    puts "**** params[:comment][:post_id] #{params[:comment][:post_id]}"
+
 
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to user_post_path(params[:user_id], params[:post_id]), notice: 'Comment was successfully created.' }
+
+        puts "*** @user.inspect: #{@user.inspect} ****"
+        puts "*** @post.inspect: #{@post.inspect} ****"
+        puts "*** @comment.inspect: #{@comment.inspect} ****"
+        new_comment_url = "/users/#{params[:user_id]}/posts/#{params[:comment][:post_id]}"
+        puts "*** new_comment_url: #{new_comment_url} ****"
+
+        format.html { redirect_to new_comment_url, notice: 'Comment was successfully created.' }
         format.json { render :show, status: :created, location: @comment }
       else
         format.html { redirect_to new_user_comment_path(params[:user_id]), notice: 'Post update failed.'  }
@@ -79,6 +92,6 @@ class CommentsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def comment_params
         puts "\n******** comment_params ********"
-        params.require(:comment).permit(:user_id, :post_id, :content)
+        params.require(:comment).permit( :content,  :user_id, :post_id)
     end
 end

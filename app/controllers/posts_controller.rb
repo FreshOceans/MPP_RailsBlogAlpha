@@ -6,7 +6,7 @@ class PostsController < ApplicationController
   def index
     puts "\n******** index ********"
     @posts = Post.all
-    puts "\n******** @post, #{@posts} ********"
+    puts "******** @post, #{@posts} ********"
 
   end
 
@@ -14,9 +14,10 @@ class PostsController < ApplicationController
   # GET /posts/1.json
   def show
     puts "\n******** show posts ********"
-    puts "\n*** params.inspect: #{params.inspect} ***"
-    @user = User.find(params[:user_id])
+    puts "*** params.inspect: #{params.inspect} ***"
+    @user = User.find(session[:user_id])
     @comment = Comment.new
+    @comments = @user.comments
   end
 
   # GET /posts/new
@@ -39,7 +40,7 @@ class PostsController < ApplicationController
   def create
     puts "\n******** create post ********"
     @post = Post.new(post_params)
-    puts "\n*** params.inspect: #{params.inspect} ***"
+    puts "*** params.inspect: #{params.inspect} ***"
 
     respond_to do |format|
       if @post.save

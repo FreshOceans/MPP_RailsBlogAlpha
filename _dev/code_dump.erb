@@ -30,3 +30,8 @@
     </div>
 
 <% end %>
+
+
+
+format.html { redirect_to user_post_path(params[:user_id], params[:post_id]), notice: 'Comment was successfully created.' }
+{user_id: params[:user_id], id: params[:post_id]}

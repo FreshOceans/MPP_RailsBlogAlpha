@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   # == custom routes
   # get "/" => "home#home"
   get "/" => "users#home"
+  get "/feed" => "users#feed"
   get "/login_form" => "users#login_form"
   post "/login" => "users#login"
   get "/logout" => "users#logout"

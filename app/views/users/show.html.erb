@@ -4,7 +4,6 @@
 
 <p><%= @user.fname + " " + @user.lname %></p>
 
-
 <% @posts.each do |post| %>
     <%= link_to 'Edit', edit_user_post_path(@user, post) %> |
     <p> <%= post.title %> </p>

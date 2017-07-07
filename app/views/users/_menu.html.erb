@@ -5,7 +5,7 @@
     <% puts "**** session[:user_id]: #{session[:user_id]} ****" %>
 
     <% if session[:user_id] %>
-        <%= link_to 'Home', "/", class: "menu_item" %>
+        <%= link_to 'Feed', feed_path, class: "menu_item" %>
         <%= link_to 'Directory', users_path, class: "menu_item" %>
         <%= link_to 'Profile', user_path(session[:user_id]), class: "menu_item" %>
         <%= link_to 'Publish', new_user_post_path(session[:user_id]), class: "menu_item" %>

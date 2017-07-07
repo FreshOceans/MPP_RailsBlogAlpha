@@ -1,0 +1,6 @@
+<% @users.each do |user| %>
+    <% if user.id == session[:user_id] %>
+        <p>Welcome Back <%= user.fname %> <%= user.lname %></p>
+        <p>Here's what new</p>
+    <% end %>
+<% end %>

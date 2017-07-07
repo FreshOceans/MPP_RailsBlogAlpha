@@ -14606,3 +14606,703 @@ Processing by UsersController#home as HTML
 Completed 200 OK in 61ms (Views: 55.5ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/users/8/posts/new" for 127.0.0.1 at 2017-07-07 17:11:30 -0400
+Processing by PostsController#new as HTML
+  Parameters: {"user_id"=>"8"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (2.6ms)
+  Rendered posts/new.html.erb within layouts/application (6.5ms)
+  Rendered users/_menu.html.erb (1.5ms)
+Completed 200 OK in 66ms (Views: 49.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/8" for 127.0.0.1 at 2017-07-07 17:11:31 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mPost Load (2.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 11]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 8]]
+  Rendered users/show.html.erb within layouts/application (7.3ms)
+  Rendered users/_menu.html.erb (1.7ms)
+Completed 200 OK in 73ms (Views: 53.7ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-07-07 17:11:32 -0400
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mPost Load (2.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[36mPost Load (2.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 3]]
+  [1m[36mPost Load (9.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 4]]
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 5]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 8]]
+  Rendered users/index.html.erb within layouts/application (40.1ms)
+  Rendered users/_menu.html.erb (1.5ms)
+Completed 200 OK in 110ms (Views: 88.3ms | ActiveRecord: 16.4ms)
+
+
+Started GET "/users/1/posts/1" for 127.0.0.1 at 2017-07-07 17:11:37 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"user_id"=>"1", "id"=>"1"}
+  [1m[36mPost Load (2.8ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (4.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Load (1.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."user_id" = $1[0m  [["user_id", 8]]
+  Rendered comments/_form.html.erb (2.6ms)
+  Rendered posts/show.html.erb within layouts/application (20.2ms)
+  Rendered users/_menu.html.erb (1.5ms)
+Completed 200 OK in 76ms (Views: 54.7ms | ActiveRecord: 8.7ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-07-07 17:12:43 -0400
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 3]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 4]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 5]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 8]]
+  Rendered users/index.html.erb within layouts/application (15.6ms)
+  Rendered users/_menu.html.erb (3.0ms)
+Completed 200 OK in 73ms (Views: 67.7ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-07-07 17:12:45 -0400
+Processing by UsersController#home as HTML
+  Rendering users/home.html.erb within layouts/application
+  Rendered users/home.html.erb within layouts/application (9.3ms)
+Completed 500 Internal Server Error in 40ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `fname' for nil:NilClass):
+    1: <p><%= @user.fname + " " + @user.lname %></p>
+  
+app/views/users/home.html.erb:1:in `_app_views_users_home_html_erb___256768005018321695_70156582637840'
+Started GET "/" for 127.0.0.1 at 2017-07-07 17:14:10 -0400
+Processing by UsersController#home as HTML
+  Rendering users/home.html.erb within layouts/application
+  Rendered users/home.html.erb within layouts/application (5.4ms)
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `fname' for 8:Integer):
+    1: <p><%= @user.fname + " " + @user.lname %></p>
+  
+app/views/users/home.html.erb:1:in `_app_views_users_home_html_erb___256768005018321695_70156632526520'
+Started GET "/" for 127.0.0.1 at 2017-07-07 17:14:11 -0400
+Processing by UsersController#home as HTML
+  Rendering users/home.html.erb within layouts/application
+  Rendered users/home.html.erb within layouts/application (7.6ms)
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `fname' for 8:Integer):
+    1: <p><%= @user.fname + " " + @user.lname %></p>
+  
+app/views/users/home.html.erb:1:in `_app_views_users_home_html_erb___256768005018321695_70156614688560'
+Started GET "/" for 127.0.0.1 at 2017-07-07 17:14:13 -0400
+Processing by UsersController#home as HTML
+  Rendering users/home.html.erb within layouts/application
+  Rendered users/home.html.erb within layouts/application (5.3ms)
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `fname' for 8:Integer):
+    1: <p><%= @user.fname + " " + @user.lname %></p>
+  
+app/views/users/home.html.erb:1:in `_app_views_users_home_html_erb___256768005018321695_70156617114740'
+Started GET "/" for 127.0.0.1 at 2017-07-07 17:14:31 -0400
+Processing by UsersController#home as HTML
+  Rendering users/home.html.erb within layouts/application
+  Rendered users/home.html.erb within layouts/application (7.7ms)
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `fname' for "8":String):
+    1: <p><%= @user.fname + " " + @user.lname %></p>
+  
+app/views/users/home.html.erb:1:in `_app_views_users_home_html_erb___256768005018321695_70156630326440'
+Started GET "/" for 127.0.0.1 at 2017-07-07 17:14:32 -0400
+Processing by UsersController#home as HTML
+  Rendering users/home.html.erb within layouts/application
+  Rendered users/home.html.erb within layouts/application (6.1ms)
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `fname' for "8":String):
+    1: <p><%= @user.fname + " " + @user.lname %></p>
+  
+app/views/users/home.html.erb:1:in `_app_views_users_home_html_erb___256768005018321695_70156588959240'
+Started GET "/" for 127.0.0.1 at 2017-07-07 17:14:33 -0400
+Processing by UsersController#home as HTML
+  Rendering users/home.html.erb within layouts/application
+  Rendered users/home.html.erb within layouts/application (5.8ms)
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `fname' for "8":String):
+    1: <p><%= @user.fname + " " + @user.lname %></p>
+  
+app/views/users/home.html.erb:1:in `_app_views_users_home_html_erb___256768005018321695_70156632794820'
+Started GET "/" for 127.0.0.1 at 2017-07-07 17:14:40 -0400
+Processing by UsersController#home as HTML
+  Rendering users/home.html.erb within layouts/application
+  Rendered users/home.html.erb within layouts/application (7.1ms)
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `fname' for 8:Integer):
+    1: <p><%= @user.fname + " " + @user.lname %></p>
+  
+app/views/users/home.html.erb:1:in `_app_views_users_home_html_erb___256768005018321695_70156609096460'
+Started GET "/" for 127.0.0.1 at 2017-07-07 17:14:42 -0400
+Processing by UsersController#home as HTML
+  Rendering users/home.html.erb within layouts/application
+  Rendered users/home.html.erb within layouts/application (5.2ms)
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `fname' for 8:Integer):
+    1: <p><%= @user.fname + " " + @user.lname %></p>
+  
+app/views/users/home.html.erb:1:in `_app_views_users_home_html_erb___256768005018321695_70156630795480'
+Started GET "/" for 127.0.0.1 at 2017-07-07 17:16:57 -0400
+Processing by UsersController#home as HTML
+  Rendering users/home.html.erb within layouts/application
+  Rendered users/home.html.erb within layouts/application (5.4ms)
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `fname' for 8:Integer):
+    1: <p><%= @user.fname + " " + @user.lname %></p>
+  
+app/views/users/home.html.erb:1:in `_app_views_users_home_html_erb___256768005018321695_70156622378920'
+Started GET "/" for 127.0.0.1 at 2017-07-07 17:17:13 -0400
+Processing by UsersController#home as HTML
+  Rendering users/home.html.erb within layouts/application
+  Rendered users/home.html.erb within layouts/application (0.6ms)
+  Rendered users/_menu.html.erb (1.6ms)
+Completed 200 OK in 36ms (Views: 25.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/logout" for 127.0.0.1 at 2017-07-07 17:17:16 -0400
+Processing by UsersController#logout as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-07-07 17:17:16 -0400
+Processing by UsersController#home as HTML
+  Rendering users/home.html.erb within layouts/application
+  Rendered users/home.html.erb within layouts/application (0.6ms)
+  Rendered users/_menu.html.erb (1.5ms)
+Completed 200 OK in 48ms (Views: 44.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-07-07 17:17:17 -0400
+Processing by UsersController#home as HTML
+  Rendering users/home.html.erb within layouts/application
+  Rendered users/home.html.erb within layouts/application (0.9ms)
+  Rendered users/_menu.html.erb (6.5ms)
+Completed 200 OK in 78ms (Views: 74.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login_form" for 127.0.0.1 at 2017-07-07 17:17:18 -0400
+Processing by UsersController#login_form as HTML
+  Rendering users/login_form.html.erb within layouts/application
+  Rendered users/login_form.html.erb within layouts/application (3.5ms)
+  Rendered users/_menu.html.erb (1.3ms)
+Completed 200 OK in 62ms (Views: 61.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2017-07-07 17:17:19 -0400
+Processing by UsersController#login as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9LybctUIvv1gUEQXDCgqgLxwe4b0+MK2StK8ODp6cJ6tZETBeijFzJJdIP9DM3I/3lmfMY16cXJW18diHZp3/w==", "username"=>"swell09", "password"=>"[FILTERED]", "commit"=>"Log In"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["username", "swell09"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 200 OK in 26ms (ActiveRecord: 8.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-07-07 17:17:19 -0400
+Processing by UsersController#home as HTML
+  Rendering users/home.html.erb within layouts/application
+  Rendered users/home.html.erb within layouts/application (0.7ms)
+  Rendered users/_menu.html.erb (5.7ms)
+Completed 200 OK in 55ms (Views: 51.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-07-07 17:17:21 -0400
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 3]]
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 4]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 5]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 8]]
+  Rendered users/index.html.erb within layouts/application (54.1ms)
+  Rendered users/_menu.html.erb (1.2ms)
+Completed 200 OK in 123ms (Views: 74.9ms | ActiveRecord: 14.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-07-07 17:17:25 -0400
+Processing by UsersController#home as HTML
+  Rendering users/home.html.erb within layouts/application
+  Rendered users/home.html.erb within layouts/application (2.8ms)
+  Rendered users/_menu.html.erb (1.5ms)
+Completed 200 OK in 75ms (Views: 60.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-07-07 17:21:32 -0400
+Processing by UsersController#home as HTML
+  Rendering users/home.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered users/home.html.erb within layouts/application (30.7ms)
+  Rendered users/_menu.html.erb (4.4ms)
+Completed 200 OK in 74ms (Views: 57.1ms | ActiveRecord: 7.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-07-07 17:21:35 -0400
+Processing by UsersController#home as HTML
+  Rendering users/home.html.erb within layouts/application
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered users/home.html.erb within layouts/application (4.7ms)
+  Rendered users/_menu.html.erb (1.8ms)
+Completed 200 OK in 65ms (Views: 57.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-07-07 17:21:57 -0400
+Processing by UsersController#home as HTML
+  Rendering users/home.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered users/home.html.erb within layouts/application (2.6ms)
+  Rendered users/_menu.html.erb (1.7ms)
+Completed 200 OK in 83ms (Views: 79.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-07-07 17:21:57 -0400
+Processing by UsersController#home as HTML
+  Rendering users/home.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered users/home.html.erb within layouts/application (4.4ms)
+  Rendered users/_menu.html.erb (8.4ms)
+Completed 200 OK in 109ms (Views: 104.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-07-07 17:22:14 -0400
+Processing by UsersController#home as HTML
+  Rendering users/home.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered users/home.html.erb within layouts/application (2.4ms)
+  Rendered users/_menu.html.erb (1.6ms)
+Completed 200 OK in 31ms (Views: 26.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/logout" for 127.0.0.1 at 2017-07-07 17:22:39 -0400
+Processing by UsersController#logout as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-07-07 17:22:39 -0400
+Processing by UsersController#home as HTML
+  Rendering users/home.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered users/home.html.erb within layouts/application (2.8ms)
+  Rendered users/_menu.html.erb (1.3ms)
+Completed 200 OK in 53ms (Views: 49.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-07-07 17:22:41 -0400
+Processing by UsersController#home as HTML
+  Rendering users/home.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered users/home.html.erb within layouts/application (2.4ms)
+  Rendered users/_menu.html.erb (1.5ms)
+Completed 200 OK in 33ms (Views: 28.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/login_form" for 127.0.0.1 at 2017-07-07 17:22:48 -0400
+Processing by UsersController#login_form as HTML
+  Rendering users/login_form.html.erb within layouts/application
+  Rendered users/login_form.html.erb within layouts/application (2.9ms)
+  Rendered users/_menu.html.erb (11.9ms)
+Completed 200 OK in 64ms (Views: 63.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login_form" for 127.0.0.1 at 2017-07-07 17:23:23 -0400
+Processing by UsersController#login_form as HTML
+  Rendering users/login_form.html.erb within layouts/application
+  Rendered users/login_form.html.erb within layouts/application (15.5ms)
+  Rendered users/_menu.html.erb (1.6ms)
+Completed 200 OK in 59ms (Views: 58.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2017-07-07 17:23:26 -0400
+Processing by UsersController#login as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RYxkx7QCUG/RulMCXbt+Rw9fXwPojdzAhsZjTf8rO38cVLt0GyIrXiO3N+oSoCb4bXa7tJEPbwSawxgX2Ms8Hg==", "username"=>"swell09", "password"=>"[FILTERED]", "commit"=>"Log In"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["username", "swell09"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 200 OK in 6ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-07-07 17:23:26 -0400
+Processing by UsersController#home as HTML
+  Rendering users/home.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered users/home.html.erb within layouts/application (5.3ms)
+  Rendered users/_menu.html.erb (1.4ms)
+Completed 200 OK in 54ms (Views: 47.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-07-07 17:23:27 -0400
+Processing by UsersController#home as HTML
+  Rendering users/home.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered users/home.html.erb within layouts/application (7.5ms)
+  Rendered users/_menu.html.erb (1.6ms)
+Completed 200 OK in 53ms (Views: 48.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/logout" for 127.0.0.1 at 2017-07-07 17:24:03 -0400
+Processing by UsersController#logout as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-07-07 17:24:03 -0400
+Processing by UsersController#home as HTML
+  Rendering users/home.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered users/home.html.erb within layouts/application (4.9ms)
+  Rendered users/_menu.html.erb (1.6ms)
+Completed 200 OK in 44ms (Views: 40.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-07-07 17:24:04 -0400
+Processing by UsersController#home as HTML
+  Rendering users/home.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered users/home.html.erb within layouts/application (2.9ms)
+  Rendered users/_menu.html.erb (4.3ms)
+Completed 200 OK in 37ms (Views: 33.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-07-07 17:24:04 -0400
+Processing by UsersController#home as HTML
+  Rendering users/home.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered users/home.html.erb within layouts/application (2.3ms)
+  Rendered users/_menu.html.erb (1.4ms)
+Completed 200 OK in 30ms (Views: 27.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2017-07-07 17:24:06 -0400
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (4.3ms)
+  Rendered users/new.html.erb within layouts/application (8.7ms)
+  Rendered users/_menu.html.erb (1.2ms)
+Completed 200 OK in 63ms (Views: 55.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login_form" for 127.0.0.1 at 2017-07-07 17:24:08 -0400
+Processing by UsersController#login_form as HTML
+  Rendering users/login_form.html.erb within layouts/application
+  Rendered users/login_form.html.erb within layouts/application (3.8ms)
+  Rendered users/_menu.html.erb (1.3ms)
+Completed 200 OK in 60ms (Views: 58.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2017-07-07 17:24:09 -0400
+Processing by UsersController#login as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"BaWU5p/uVejBPXi3KIrV/kPG7cKJTMCypL41Qjvth/xcfUtVMM4u2TMwHF9nkY1BIe8JdfDOc3a4u04YHA2AnQ==", "username"=>"swell09", "password"=>"[FILTERED]", "commit"=>"Log In"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["username", "swell09"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 200 OK in 4ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-07-07 17:24:09 -0400
+Processing by UsersController#home as HTML
+  Rendering users/home.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered users/home.html.erb within layouts/application (10.2ms)
+  Rendered users/_menu.html.erb (2.2ms)
+Completed 200 OK in 63ms (Views: 55.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-07-07 17:24:11 -0400
+Processing by UsersController#home as HTML
+  Rendering users/home.html.erb within layouts/application
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered users/home.html.erb within layouts/application (3.4ms)
+  Rendered users/_menu.html.erb (1.5ms)
+Completed 200 OK in 63ms (Views: 58.0ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-07-07 17:28:01 -0400
+Processing by UsersController#home as HTML
+  Rendering users/home.html.erb within layouts/application
+  Rendered users/home.html.erb within layouts/application (0.6ms)
+  Rendered users/_menu.html.erb (1.6ms)
+Completed 200 OK in 60ms (Views: 49.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/logout" for 127.0.0.1 at 2017-07-07 17:28:04 -0400
+Processing by UsersController#logout as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-07-07 17:28:04 -0400
+Processing by UsersController#home as HTML
+  Rendering users/home.html.erb within layouts/application
+  Rendered users/home.html.erb within layouts/application (0.9ms)
+  Rendered users/_menu.html.erb (1.5ms)
+Completed 200 OK in 33ms (Views: 29.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-07-07 17:28:05 -0400
+Processing by UsersController#home as HTML
+  Rendering users/home.html.erb within layouts/application
+  Rendered users/home.html.erb within layouts/application (0.9ms)
+  Rendered users/_menu.html.erb (1.3ms)
+Completed 200 OK in 32ms (Views: 29.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login_form" for 127.0.0.1 at 2017-07-07 17:28:06 -0400
+Processing by UsersController#login_form as HTML
+  Rendering users/login_form.html.erb within layouts/application
+  Rendered users/login_form.html.erb within layouts/application (2.8ms)
+  Rendered users/_menu.html.erb (1.4ms)
+Completed 200 OK in 47ms (Views: 46.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2017-07-07 17:28:07 -0400
+Processing by UsersController#login as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ULA2uqAg2EcwXYzaBP5eSYV43w9EwU95cjnBZaIf3pcJaOkJDwCjdsJQ6DJL5Qb251E7uD1D/L1uPLo/hf/Z9g==", "username"=>"swell09", "password"=>"[FILTERED]", "commit"=>"Log In"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["username", "swell09"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+Redirected to http://localhost:3000/welcome_back
+Completed 200 OK in 23ms (ActiveRecord: 8.4ms)
+
+
+Started GET "/welcome_back" for 127.0.0.1 at 2017-07-07 17:28:07 -0400
+Processing by UsersController#welcome_back as HTML
+  Rendering users/welcome_back.html.erb within layouts/application
+  Rendered users/welcome_back.html.erb within layouts/application (4.4ms)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    1: <% @users.each do |user| %>
+    2:     <% if user.id == session[:user_id] %>
+    3:         <p>Welcome Back <%= user.fname %> <%= user.lname %></p>
+    4:     <% end %>
+  
+app/views/users/welcome_back.html.erb:1:in `_app_views_users_welcome_back_html_erb___2366355450540119771_70156624124120'
+Started GET "/welcome_back" for 127.0.0.1 at 2017-07-07 17:28:42 -0400
+Processing by UsersController#welcome_back as HTML
+  Rendering users/welcome_back.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered users/welcome_back.html.erb within layouts/application (22.5ms)
+  Rendered users/_menu.html.erb (1.7ms)
+Completed 200 OK in 64ms (Views: 46.5ms | ActiveRecord: 6.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-07-07 17:28:45 -0400
+Processing by UsersController#home as HTML
+  Rendering users/home.html.erb within layouts/application
+  Rendered users/home.html.erb within layouts/application (0.7ms)
+  Rendered users/_menu.html.erb (1.6ms)
+Completed 200 OK in 61ms (Views: 56.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-07-07 17:28:45 -0400
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 3]]
+  [1m[36mPost Load (5.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 4]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 5]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 8]]
+  Rendered users/index.html.erb within layouts/application (54.3ms)
+  Rendered users/_menu.html.erb (1.4ms)
+Completed 200 OK in 134ms (Views: 66.0ms | ActiveRecord: 21.2ms)
+
+
+Started GET "/users/8" for 127.0.0.1 at 2017-07-07 17:28:46 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mPost Load (3.9ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 11]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 8]]
+  Rendered users/show.html.erb within layouts/application (3.3ms)
+  Rendered users/_menu.html.erb (1.4ms)
+Completed 200 OK in 73ms (Views: 48.7ms | ActiveRecord: 4.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-07-07 17:28:47 -0400
+Processing by UsersController#home as HTML
+  Rendering users/home.html.erb within layouts/application
+  Rendered users/home.html.erb within layouts/application (1.1ms)
+  Rendered users/_menu.html.erb (1.7ms)
+Completed 200 OK in 72ms (Views: 65.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-07-07 17:28:48 -0400
+Processing by UsersController#home as HTML
+  Rendering users/home.html.erb within layouts/application
+  Rendered users/home.html.erb within layouts/application (0.8ms)
+  Rendered users/_menu.html.erb (1.5ms)
+Completed 200 OK in 74ms (Views: 69.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/logout" for 127.0.0.1 at 2017-07-07 17:28:54 -0400
+Processing by UsersController#logout as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-07-07 17:28:54 -0400
+Processing by UsersController#home as HTML
+  Rendering users/home.html.erb within layouts/application
+  Rendered users/home.html.erb within layouts/application (9.6ms)
+  Rendered users/_menu.html.erb (1.3ms)
+Completed 200 OK in 45ms (Views: 41.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login_form" for 127.0.0.1 at 2017-07-07 17:28:55 -0400
+Processing by UsersController#login_form as HTML
+  Rendering users/login_form.html.erb within layouts/application
+  Rendered users/login_form.html.erb within layouts/application (2.8ms)
+  Rendered users/_menu.html.erb (1.4ms)
+Completed 200 OK in 66ms (Views: 65.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2017-07-07 17:28:56 -0400
+Processing by UsersController#login as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KVBSgQVD+mnaA7a8zvhxIMw43pUPaBdQU4MpPHTwDp5wiI0yqmOBWCgO0lSB4ymfrhE6InbqpJRPhlJmUxAJ/w==", "username"=>"swell09", "password"=>"[FILTERED]", "commit"=>"Log In"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["username", "swell09"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+Redirected to http://localhost:3000/welcome_back
+Completed 200 OK in 5ms (ActiveRecord: 1.6ms)
+
+
+Started GET "/welcome_back" for 127.0.0.1 at 2017-07-07 17:28:56 -0400
+Processing by UsersController#welcome_back as HTML
+  Rendering users/welcome_back.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered users/welcome_back.html.erb within layouts/application (7.1ms)
+  Rendered users/_menu.html.erb (1.5ms)
+Completed 200 OK in 65ms (Views: 58.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-07-07 17:30:08 -0400
+Processing by UsersController#home as HTML
+  Rendering users/home.html.erb within layouts/application
+  Rendered users/home.html.erb within layouts/application (0.7ms)
+  Rendered users/_menu.html.erb (1.6ms)
+Completed 200 OK in 50ms (Views: 42.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-07-07 17:33:29 -0400
+Processing by UsersController#home as HTML
+  Rendering users/home.html.erb within layouts/application
+  Rendered users/home.html.erb within layouts/application (0.7ms)
+  Rendered users/_menu.html.erb (1.6ms)
+Completed 200 OK in 40ms (Views: 30.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/feed" for 127.0.0.1 at 2017-07-07 17:33:31 -0400
+Processing by UsersController#feed as HTML
+  Rendering users/feed.html.erb within layouts/application
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered users/feed.html.erb within layouts/application (28.1ms)
+  Rendered users/_menu.html.erb (1.9ms)
+Completed 200 OK in 85ms (Views: 67.4ms | ActiveRecord: 9.7ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-07-07 17:33:32 -0400
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 3]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 4]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 5]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 8]]
+  Rendered users/index.html.erb within layouts/application (39.6ms)
+  Rendered users/_menu.html.erb (1.5ms)
+Completed 200 OK in 105ms (Views: 58.6ms | ActiveRecord: 16.7ms)
+
+
+Started GET "/users/8" for 127.0.0.1 at 2017-07-07 17:33:33 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mPost Load (7.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 8], ["LIMIT", 11]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 8]]
+  Rendered users/show.html.erb within layouts/application (3.0ms)
+  Rendered users/_menu.html.erb (1.4ms)
+Completed 200 OK in 60ms (Views: 29.7ms | ActiveRecord: 7.8ms)
+
+
+Started GET "/users/8/posts/new" for 127.0.0.1 at 2017-07-07 17:33:34 -0400
+Processing by PostsController#new as HTML
+  Parameters: {"user_id"=>"8"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (3.2ms)
+  Rendered posts/new.html.erb within layouts/application (6.5ms)
+  Rendered users/_menu.html.erb (1.5ms)
+Completed 200 OK in 55ms (Views: 39.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/logout" for 127.0.0.1 at 2017-07-07 17:33:35 -0400
+Processing by UsersController#logout as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-07-07 17:33:35 -0400
+Processing by UsersController#home as HTML
+  Rendering users/home.html.erb within layouts/application
+  Rendered users/home.html.erb within layouts/application (6.7ms)
+  Rendered users/_menu.html.erb (2.6ms)
+Completed 200 OK in 47ms (Views: 43.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-07-07 17:33:36 -0400
+Processing by UsersController#home as HTML
+  Rendering users/home.html.erb within layouts/application
+  Rendered users/home.html.erb within layouts/application (0.8ms)
+  Rendered users/_menu.html.erb (1.5ms)
+Completed 200 OK in 46ms (Views: 42.0ms | ActiveRecord: 0.0ms)
+
+

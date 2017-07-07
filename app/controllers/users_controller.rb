@@ -8,6 +8,12 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
+  # == GET /feed
+  def feed
+    puts "\n******** feed ********"
+    @users = User.all
+  end
+
   # == GET /login_form
   def login_form
       puts "\n******** login_form ********"
@@ -24,7 +30,7 @@ class UsersController < ApplicationController
                 puts "** session[:user_id], #{session[:user_id]} **"
                 @current_user = get_current_user
                 flash[:notice] = "You've been logged in successfully."
-                redirect_to '/'
+                redirect_to '/welcome_back'
             else
                 flash[:notice]= "Please check your username and password and try again."
                 redirect_to "/login_form"

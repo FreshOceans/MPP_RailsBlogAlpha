@@ -80,6 +80,7 @@ class UsersController < ApplicationController
     puts "*** @user.inspect, #{@user.inspect} ***"
     @post = Post.new
     @posts = @user.posts
+    @addresses = Address.all
     @address = @user.address
     puts "@user.fname: #{@user.fname}"
     puts "*** @posts.inspect: #{@posts.inspect} ***"
@@ -103,8 +104,9 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        format.html { redirect_to '/feed', notice: 'You have successfully created an account.' }
         format.json { render :show, status: :created, location: @user }
+        session[:user_id] = @user.id
       else
         format.html { render :new }
         format.json { render json: @user.errors, status: :unprocessable_entity }

@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    puts "\n******** index ********"
+    puts "\n******** post_index ********"
     @posts = Post.all
     puts "******** @post, #{@posts} ********"
 
@@ -13,7 +13,7 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
-    puts "\n******** show posts ********"
+    puts "\n******** show_posts ********"
     puts "*** params.inspect: #{params.inspect} ***"
     @user = User.find(session[:user_id])
     @comment = Comment.new
@@ -22,7 +22,7 @@ class PostsController < ApplicationController
 
   # GET /posts/new
   def new
-    puts "\n******** new post ********"
+    puts "\n******** new_post ********"
     @post = Post.new
     @user = User.find(session[:user_id])
     puts "*** @user.inspect: #{@user.inspect} ***"
@@ -30,7 +30,7 @@ class PostsController < ApplicationController
 
   # GET /posts/1/edit
   def edit
-    puts "\n******** edit post ********"
+    puts "\n******** edit_post ********"
     @user = User.find(params[:user_id])
     puts "*** @user.inspect: #{@user.inspect} ***"
   end
@@ -38,7 +38,7 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
-    puts "\n******** create post ********"
+    puts "\n******** create_post ********"
     @post = Post.new(post_params)
     puts "*** params.inspect: #{params.inspect} ***"
 
@@ -56,7 +56,7 @@ class PostsController < ApplicationController
   # PATCH/PUT /posts/1
   # PATCH/PUT /posts/1.json
   def update
-    puts "\n******** update post ********"
+    puts "\n******** update_post ********"
     respond_to do |format|
       if @post.update(post_params)
         format.html { redirect_to @post, notice: 'Post was successfully updated.' }
@@ -71,12 +71,10 @@ class PostsController < ApplicationController
   # DELETE /posts/1
   # DELETE /posts/1.json
   def destroy
-    puts "\n******** delete post ********"
+    puts "\n******** delete_post ********"
     @post.destroy
-    respond_to do |format|
-      format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    flash[:notice] = 'Post was successfully deleted.'
+    redirect_to '/feed'
   end
 
   private

@@ -135,6 +135,7 @@ class UsersController < ApplicationController
     puts "\n******** destroy_user ********"
     @user.destroy
     session[:user_id] = nil
+    flash[:notice] = 'User was successfully deleted.'
     redirect_to '/'
   end
 

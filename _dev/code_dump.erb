@@ -50,3 +50,12 @@ format.html { redirect_to user_post_path(params[:user_id], params[:post_id]), no
     <p> <%= address.city %>, <%= address.state %> </p>
     <p> <%= address.zip %> </p>
 <% end %>
+
+
+<!-- User + Address Form -->
+change form type to form_for ->
+pass @user and @address in form
+add form field to user registration form
+add to user controls permit at bottom
+permit params
+    [:address][:street] etc.

@@ -6,4 +6,5 @@
 
 <%= puts "*** @user.inspect: #{@user.inspect} ***" %>
 
-<%= link_to 'Back', user_path(@user) %>
+<%= link_to 'Back', user_path(@user) %> |
+<%= link_to 'Delete Post', user_post_path(@user, @post), method: :delete %>

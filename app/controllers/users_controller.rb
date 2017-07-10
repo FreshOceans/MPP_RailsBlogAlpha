@@ -80,8 +80,10 @@ class UsersController < ApplicationController
     puts "*** @user.inspect, #{@user.inspect} ***"
     @post = Post.new
     @posts = @user.posts
+    @address = @user.address
     puts "@user.fname: #{@user.fname}"
     puts "*** @posts.inspect: #{@posts.inspect} ***"
+    puts "*** @address.inspect: #{@address.inspect} ***"
   end
 
   # GET /users/new

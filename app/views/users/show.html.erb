@@ -1,6 +1,9 @@
 <%= link_to 'Edit Profile', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
 <%= link_to 'New Post', new_user_post_path(@user, @post) %>
+<%= link_to 'Address', new_user_address_path(@user, @address) %>
+<%= link_to 'Edit Address', edit_user_address_path(@user, @address) %>
+
 
 <p><%= @user.fname + " " + @user.lname %></p>
 
@@ -9,3 +12,10 @@
     <p> <%= post.title %> </p>
     <p> <%= post.content %> </p>
 <% end %>
+
+
+<div id="address">
+    <p> <%= @address.street %> </p>
+    <p> <%= @address.city %>, <%= @address.state %> </p>
+    <p> <%= @address.zip %> </p>
+</div>

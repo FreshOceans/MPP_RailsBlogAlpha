@@ -1,11 +1,9 @@
 <!-- Code Dump -->
 
-
 <!-- FORMS ON FORMS ON FORMS -->
 
 <%= label :title, "Title", class: "data-label" %>: <%= form.text_field :title, id: "title", class: "data-value" %><br />
 <%= label :content, "Content", class: "data-label" %>: <%= form.text_field :content, id: "content", class: "data-value" %><br />
-
 
 
 <div class="actions">
@@ -32,28 +30,23 @@
 <% end %>
 
 
-
 format.html { redirect_to user_post_path(params[:user_id], params[:post_id]), notice: 'Comment was successfully created.' }
 {user_id: params[:user_id], id: params[:post_id]}
 
 
-
-
-MENU ITEMS
-        <!-- <%=# link_to 'Publish', new_user_post_path(user_id, post_id), class: "menu_item") %> -->
+<!-- MENU ITEMS -->
+        <%= link_to 'Publish', new_user_post_path(user_id, post_id), class: "menu_item") %>
 
         if session[user] !> 0
             session[user] = nil
         end
 
 
+<!-- Address: -->
 
-
-validation
-
-validates :username, :uniqueness => true, :presence => true
-validates :password, presence: => true
-validates :email, confirmation: => true
-
-User.create(name: "Michael Nobre").valid? # => true
-User.create(name: nil).valid? # => false
+<% @addresses.each do |address| %>
+    <%= link_to 'Edit', edit_user_address_path(@user, address) %> |
+    <p> <%= address.street %> </p>
+    <p> <%= address.city %>, <%= address.state %> </p>
+    <p> <%= address.zip %> </p>
+<% end %>

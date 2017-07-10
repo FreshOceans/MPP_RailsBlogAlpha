@@ -1,0 +1,19 @@
+<!-- views/addresses -->
+
+<%= puts "*** @user: #{@user.inspect} ***" %>
+
+
+<%= form_for([@user, @address]) do |form| %>
+
+    <div class="actions">
+        <!-- street, city, state, zip -->
+        <%= label :street, "Street", class: "data-label" %>: <%= form.text_field :street, id: "street", class: "data-value" %><br />
+        <%= label :city, "City", class: "data-label" %>: <%= form.text_field :city, id: "city", class: "data-value" %><br />
+        <%= label :state, "State", class: "data-label" %>: <%= form.text_field :state, id: "state", class: "data-value" %><br />
+        <%= label :zip, "Zipcode", class: "data-label" %>: <%= form.text_field :zip, id: "zip", class: "data-value" %><br />
+        <input type="hidden" name="address[user_id]" value="<%= @user.id %>">
+
+        <%= form.submit "Add Address", class: "submit_btn" %>
+    </div>
+
+<% end %>

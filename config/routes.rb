@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   resources :users do
       resources :posts
       resources :comments
+      resources :addresses
   end
 
 end

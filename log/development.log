@@ -17909,3 +17909,1838 @@ Processing by UsersController#create as HTML
 Completed 200 OK in 44ms (Views: 36.1ms | ActiveRecord: 0.8ms)
 
 
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8145189783920991900);[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateAddresses (20170710161434)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (65.5ms)[0m  [1m[35mCREATE TABLE "addresses" ("id" bigserial primary key, "user_id" bigint, "street" character varying, "city" character varying, "state" character varying, "zip" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_48c9e0c5a2"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE  INDEX  "index_addresses_on_user_id" ON "addresses"  ("user_id")[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170710161434"]]
+  [1m[35m (163.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(8145189783920991900)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (26.1ms)[0m  [1m[32mINSERT INTO "addresses" ("user_id", "street", "city", "state", "zip", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["user_id", 1], ["street", "1600 Pennsylvania Ave"], ["city", "Washington"], ["state", "DC"], ["zip", 66600], ["created_at", "2017-07-10 16:19:48.809512"], ["updated_at", "2017-07-10 16:19:48.809512"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mAddress Load (1.0ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses"[0m
+  [1m[35m (17.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (38.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.8ms)[0m  [1m[33mUPDATE "addresses" SET "street" = $1, "city" = $2, "state" = $3, "zip" = $4, "updated_at" = $5 WHERE "addresses"."id" = $6[0m  [["street", "2251 Eisenhower Ave"], ["city", "Alexandria"], ["state", "VA"], ["zip", 22314], ["updated_at", "2017-07-10 16:21:56.871864"], ["id", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/users" for 127.0.0.1 at 2017-07-10 12:53:17 -0400
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 3]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 4]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 5]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 8]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 9]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered users/index.html.erb within layouts/application (67.6ms)
+  Rendered users/_menu.html.erb (1.1ms)
+Completed 200 OK in 130ms (Views: 82.1ms | ActiveRecord: 23.0ms)
+
+
+Started GET "/login_form" for 127.0.0.1 at 2017-07-10 12:53:19 -0400
+Processing by UsersController#login_form as HTML
+  Rendering users/login_form.html.erb within layouts/application
+  Rendered users/login_form.html.erb within layouts/application (9.9ms)
+  Rendered users/_menu.html.erb (1.2ms)
+Completed 200 OK in 65ms (Views: 64.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2017-07-10 12:53:21 -0400
+Processing by UsersController#login as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LoQ+Rw4jQIu8B1s2Gumgas5mKp0dKxEjMUchSGHJqzZ3XOH0oQM7uk4KP95V8vjVrE/OKmSpouctQloSRimsVw==", "username"=>"QueenM", "password"=>"[FILTERED]", "commit"=>"Log In"}
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["username", "QueenM"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+Redirected to http://localhost:3000/feed
+Completed 200 OK in 7ms (ActiveRecord: 2.5ms)
+
+
+Started GET "/feed" for 127.0.0.1 at 2017-07-10 12:53:21 -0400
+Processing by UsersController#feed as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering users/feed.html.erb within layouts/application
+  Rendered users/feed.html.erb within layouts/application (0.6ms)
+  Rendered users/_menu.html.erb (1.7ms)
+Completed 200 OK in 66ms (Views: 56.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users/10" for 127.0.0.1 at 2017-07-10 12:53:24 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (6.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 30ms (ActiveRecord: 6.4ms)
+
+
+  
+SyntaxError (/Users/Nobre/Desktop/Homework/Ruby/Rails/MPP_RailsBlogAlpha/app/models/address.rb:7: syntax error, unexpected =>
+h => {is: 5}, numericality: => true, :presence => { :message
+                              ^
+/Users/Nobre/Desktop/Homework/Ruby/Rails/MPP_RailsBlogAlpha/app/models/address.rb:7: Can't assign to true
+is: 5}, numericality: => true, :presence => { :message => "P
+                              ^
+/Users/Nobre/Desktop/Homework/Ruby/Rails/MPP_RailsBlogAlpha/app/models/address.rb:7: syntax error, unexpected =>, expecting &. or :: or '[' or '.'
+icality: => true, :presence => { :message => "Please enter a
+                              ^):
+  
+app/models/address.rb:7: syntax error, unexpected =>
+app/models/address.rb:7: Can't assign to true
+app/models/address.rb:7: syntax error, unexpected =>, expecting &. or :: or '[' or '.'
+app/controllers/users_controller.rb:83:in `show'
+Started GET "/users/10" for 127.0.0.1 at 2017-07-10 12:55:12 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 60ms (ActiveRecord: 13.9ms)
+
+
+  
+SyntaxError (/Users/Nobre/Desktop/Homework/Ruby/Rails/MPP_RailsBlogAlpha/app/models/address.rb:7: syntax error, unexpected ':', expecting keyword_end
+validates :zip, :numericality: => true, :presence => { :mess
+                              ^
+/Users/Nobre/Desktop/Homework/Ruby/Rails/MPP_RailsBlogAlpha/app/models/address.rb:7: Can't assign to true
+ :zip, :numericality: => true, :presence => { :message => "P
+                              ^
+/Users/Nobre/Desktop/Homework/Ruby/Rails/MPP_RailsBlogAlpha/app/models/address.rb:7: syntax error, unexpected =>, expecting &. or :: or '[' or '.'
+icality: => true, :presence => { :message => "Please enter a
+                              ^):
+  
+app/models/address.rb:7: syntax error, unexpected ':', expecting keyword_end
+app/models/address.rb:7: Can't assign to true
+app/models/address.rb:7: syntax error, unexpected =>, expecting &. or :: or '[' or '.'
+app/controllers/users_controller.rb:83:in `show'
+Started GET "/users/10" for 127.0.0.1 at 2017-07-10 12:55:13 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.4ms)
+
+
+  
+SyntaxError (/Users/Nobre/Desktop/Homework/Ruby/Rails/MPP_RailsBlogAlpha/app/models/address.rb:7: syntax error, unexpected ':', expecting keyword_end
+validates :zip, :numericality: => true, :presence => { :mess
+                              ^
+/Users/Nobre/Desktop/Homework/Ruby/Rails/MPP_RailsBlogAlpha/app/models/address.rb:7: Can't assign to true
+ :zip, :numericality: => true, :presence => { :message => "P
+                              ^
+/Users/Nobre/Desktop/Homework/Ruby/Rails/MPP_RailsBlogAlpha/app/models/address.rb:7: syntax error, unexpected =>, expecting &. or :: or '[' or '.'
+icality: => true, :presence => { :message => "Please enter a
+                              ^):
+  
+app/models/address.rb:7: syntax error, unexpected ':', expecting keyword_end
+app/models/address.rb:7: Can't assign to true
+app/models/address.rb:7: syntax error, unexpected =>, expecting &. or :: or '[' or '.'
+app/controllers/users_controller.rb:83:in `show'
+Started GET "/users/10" for 127.0.0.1 at 2017-07-10 12:55:23 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 11]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered users/show.html.erb within layouts/application (3.2ms)
+  Rendered users/_menu.html.erb (1.3ms)
+Completed 200 OK in 120ms (Views: 32.6ms | ActiveRecord: 19.9ms)
+
+
+Started GET "/users/10" for 127.0.0.1 at 2017-07-10 12:55:24 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 11]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered users/show.html.erb within layouts/application (2.6ms)
+  Rendered users/_menu.html.erb (1.4ms)
+Completed 200 OK in 35ms (Views: 27.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users/10/addresses/new" for 127.0.0.1 at 2017-07-10 12:55:26 -0400
+Processing by AddressesController#new as HTML
+  Parameters: {"user_id"=>"10"}
+  [1m[36mUser Load (4.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering addresses/new.html.erb within layouts/application
+  Rendered addresses/_form.html.erb (22.1ms)
+  Rendered addresses/new.html.erb within layouts/application (25.7ms)
+Completed 500 Internal Server Error in 57ms (ActiveRecord: 4.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `username' for #<Address:0x007f8f48c9ead0>
+Did you mean?  user=):
+    11:         <%= label :city, "City", class: "data-label" %>: <%= form.text_field :city, id: "city", class: "data-value" %><br />
+    12:         <%= label :state, "State", class: "data-label" %>: <%= form.text_field :state, id: "state", class: "data-value" %><br />
+    13:         <%= label :zip, "Zipcode", class: "data-label" %>: <%= form.text_field :zip, id: "zip", class: "data-value" %><br />
+    14:         <%= label :username, "Username", class: "data-label" %>: <%= form.text_field :username, id: "username", class: "data-value" %><br />
+    15:         <%= label :email, "Email", class: "data-label" %>: <%= form.text_field :email, id: "email", class: "data-value" %><br />
+    16:         <input type="hidden" name="address[user_id]" value="<%= @user.id %>">
+    17: 
+  
+app/views/addresses/_form.html.erb:14:in `block in _app_views_addresses__form_html_erb__2059732569222415024_70126689090120'
+app/views/addresses/_form.html.erb:6:in `_app_views_addresses__form_html_erb__2059732569222415024_70126689090120'
+app/views/addresses/new.html.erb:3:in `_app_views_addresses_new_html_erb__189175612465544463_70126689133500'
+Started GET "/users/10" for 127.0.0.1 at 2017-07-10 12:56:23 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mPost Load (0.8ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 11]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered users/show.html.erb within layouts/application (3.4ms)
+  Rendered users/_menu.html.erb (1.4ms)
+Completed 200 OK in 121ms (Views: 31.7ms | ActiveRecord: 20.9ms)
+
+
+Started GET "/users/10" for 127.0.0.1 at 2017-07-10 12:56:25 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 11]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered users/show.html.erb within layouts/application (3.0ms)
+  Rendered users/_menu.html.erb (1.4ms)
+Completed 200 OK in 37ms (Views: 29.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users/10/addresses/new" for 127.0.0.1 at 2017-07-10 12:56:28 -0400
+Processing by AddressesController#new as HTML
+  Parameters: {"user_id"=>"10"}
+  [1m[36mUser Load (7.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering addresses/new.html.erb within layouts/application
+  Rendered addresses/_form.html.erb (16.4ms)
+  Rendered addresses/new.html.erb within layouts/application (20.0ms)
+Completed 500 Internal Server Error in 54ms (ActiveRecord: 7.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `username' for #<Address:0x007f8f492e1190>
+Did you mean?  user=):
+    11:         <%= label :city, "City", class: "data-label" %>: <%= form.text_field :city, id: "city", class: "data-value" %><br />
+    12:         <%= label :state, "State", class: "data-label" %>: <%= form.text_field :state, id: "state", class: "data-value" %><br />
+    13:         <%= label :zip, "Zipcode", class: "data-label" %>: <%= form.text_field :zip, id: "zip", class: "data-value" %><br />
+    14:         <%= label :username, "Username", class: "data-label" %>: <%= form.text_field :username, id: "username", class: "data-value" %><br />
+    15:         <%= label :email, "Email", class: "data-label" %>: <%= form.text_field :email, id: "email", class: "data-value" %><br />
+    16:         <input type="hidden" name="address[user_id]" value="<%= @user.id %>">
+    17: 
+  
+app/views/addresses/_form.html.erb:14:in `block in _app_views_addresses__form_html_erb__2059732569222415024_70126692161860'
+app/views/addresses/_form.html.erb:6:in `_app_views_addresses__form_html_erb__2059732569222415024_70126692161860'
+app/views/addresses/new.html.erb:3:in `_app_views_addresses_new_html_erb__189175612465544463_70126692340760'
+Started GET "/users/10" for 127.0.0.1 at 2017-07-10 12:56:47 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 59ms (ActiveRecord: 12.8ms)
+
+
+  
+SyntaxError (/Users/Nobre/Desktop/Homework/Ruby/Rails/MPP_RailsBlogAlpha/app/models/address.rb:7: syntax error, unexpected =>
+d zipcode" }, numericality: => true
+                              ^):
+  
+app/models/address.rb:7: syntax error, unexpected =>
+app/controllers/users_controller.rb:83:in `show'
+Started GET "/feed" for 127.0.0.1 at 2017-07-10 12:58:00 -0400
+Processing by UsersController#feed as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering users/feed.html.erb within layouts/application
+  Rendered users/feed.html.erb within layouts/application (0.8ms)
+  Rendered users/_menu.html.erb (1.9ms)
+Completed 200 OK in 87ms (Views: 39.2ms | ActiveRecord: 14.2ms)
+
+
+Started GET "/users/10" for 127.0.0.1 at 2017-07-10 12:58:03 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 11]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered users/show.html.erb within layouts/application (4.4ms)
+  Rendered users/_menu.html.erb (1.2ms)
+Completed 200 OK in 138ms (Views: 31.5ms | ActiveRecord: 13.5ms)
+
+
+Started GET "/users/10/addresses/new" for 127.0.0.1 at 2017-07-10 12:58:05 -0400
+Processing by AddressesController#new as HTML
+  Parameters: {"user_id"=>"10"}
+  [1m[36mUser Load (9.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering addresses/new.html.erb within layouts/application
+  Rendered addresses/_form.html.erb (18.4ms)
+  Rendered addresses/new.html.erb within layouts/application (22.7ms)
+Completed 500 Internal Server Error in 51ms (ActiveRecord: 9.8ms)
+
+
+  
+ActionView::Template::Error (undefined method `username' for #<Address:0x007f8f495d4c08>
+Did you mean?  user=):
+    11:         <%= label :city, "City", class: "data-label" %>: <%= form.text_field :city, id: "city", class: "data-value" %><br />
+    12:         <%= label :state, "State", class: "data-label" %>: <%= form.text_field :state, id: "state", class: "data-value" %><br />
+    13:         <%= label :zip, "Zipcode", class: "data-label" %>: <%= form.text_field :zip, id: "zip", class: "data-value" %><br />
+    14:         <%= label :username, "Username", class: "data-label" %>: <%= form.text_field :username, id: "username", class: "data-value" %><br />
+    15:         <%= label :email, "Email", class: "data-label" %>: <%= form.text_field :email, id: "email", class: "data-value" %><br />
+    16:         <input type="hidden" name="address[user_id]" value="<%= @user.id %>">
+    17: 
+  
+app/views/addresses/_form.html.erb:14:in `block in _app_views_addresses__form_html_erb__2059732569222415024_70126689556980'
+app/views/addresses/_form.html.erb:6:in `_app_views_addresses__form_html_erb__2059732569222415024_70126689556980'
+app/views/addresses/new.html.erb:3:in `_app_views_addresses_new_html_erb__189175612465544463_70126693933380'
+Started GET "/users/10/addresses/new" for 127.0.0.1 at 2017-07-10 12:58:41 -0400
+Processing by AddressesController#new as HTML
+  Parameters: {"user_id"=>"10"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering addresses/new.html.erb within layouts/application
+  Rendered addresses/_form.html.erb (15.0ms)
+  Rendered addresses/new.html.erb within layouts/application (18.5ms)
+Completed 500 Internal Server Error in 86ms (ActiveRecord: 15.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `username' for #<Address:0x007f8f48bc69f0>
+Did you mean?  user=):
+    11:         <%= label :city, "City", class: "data-label" %>: <%= form.text_field :city, id: "city", class: "data-value" %><br />
+    12:         <%= label :state, "State", class: "data-label" %>: <%= form.text_field :state, id: "state", class: "data-value" %><br />
+    13:         <%= label :zip, "Zipcode", class: "data-label" %>: <%= form.text_field :zip, id: "zip", class: "data-value" %><br />
+    14:         <%= label :username, "Username", class: "data-label" %>: <%= form.text_field :username, id: "username", class: "data-value" %><br />
+    15:         <%= label :email, "Email", class: "data-label" %>: <%= form.text_field :email, id: "email", class: "data-value" %><br />
+    16:         <input type="hidden" name="address[user_id]" value="<%= @user.id %>">
+    17: 
+  
+app/views/addresses/_form.html.erb:14:in `block in _app_views_addresses__form_html_erb__2059732569222415024_70126694096900'
+app/views/addresses/_form.html.erb:6:in `_app_views_addresses__form_html_erb__2059732569222415024_70126694096900'
+app/views/addresses/new.html.erb:3:in `_app_views_addresses_new_html_erb__189175612465544463_70126694165700'
+Started GET "/users/10" for 127.0.0.1 at 2017-07-10 12:58:44 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 11]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered users/show.html.erb within layouts/application (3.6ms)
+  Rendered users/_menu.html.erb (1.3ms)
+Completed 200 OK in 66ms (Views: 29.2ms | ActiveRecord: 7.3ms)
+
+
+Started GET "/users/10" for 127.0.0.1 at 2017-07-10 12:58:45 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 11]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered users/show.html.erb within layouts/application (2.6ms)
+  Rendered users/_menu.html.erb (1.3ms)
+Completed 200 OK in 35ms (Views: 27.7ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users/10/addresses/new" for 127.0.0.1 at 2017-07-10 12:58:50 -0400
+Processing by AddressesController#new as HTML
+  Parameters: {"user_id"=>"10"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering addresses/new.html.erb within layouts/application
+  Rendered addresses/_form.html.erb (16.2ms)
+  Rendered addresses/new.html.erb within layouts/application (20.1ms)
+Completed 500 Internal Server Error in 56ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `username' for #<Address:0x007f8f48c66630>
+Did you mean?  user=):
+    11:         <%= label :city, "City", class: "data-label" %>: <%= form.text_field :city, id: "city", class: "data-value" %><br />
+    12:         <%= label :state, "State", class: "data-label" %>: <%= form.text_field :state, id: "state", class: "data-value" %><br />
+    13:         <%= label :zip, "Zipcode", class: "data-label" %>: <%= form.text_field :zip, id: "zip", class: "data-value" %><br />
+    14:         <%= label :username, "Username", class: "data-label" %>: <%= form.text_field :username, id: "username", class: "data-value" %><br />
+    15:         <%= label :email, "Email", class: "data-label" %>: <%= form.text_field :email, id: "email", class: "data-value" %><br />
+    16:         <input type="hidden" name="address[user_id]" value="<%= @user.id %>">
+    17: 
+  
+app/views/addresses/_form.html.erb:14:in `block in _app_views_addresses__form_html_erb__2059732569222415024_70126693613180'
+app/views/addresses/_form.html.erb:6:in `_app_views_addresses__form_html_erb__2059732569222415024_70126693613180'
+app/views/addresses/new.html.erb:3:in `_app_views_addresses_new_html_erb__189175612465544463_70126688976480'
+Started GET "/users/10" for 127.0.0.1 at 2017-07-10 12:59:58 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 11]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered users/show.html.erb within layouts/application (9.9ms)
+  Rendered users/_menu.html.erb (1.5ms)
+Completed 200 OK in 199ms (Views: 64.3ms | ActiveRecord: 34.5ms)
+
+
+Started GET "/users/10/addresses/new" for 127.0.0.1 at 2017-07-10 13:00:00 -0400
+Processing by AddressesController#new as HTML
+  Parameters: {"user_id"=>"10"}
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering addresses/new.html.erb within layouts/application
+  Rendered addresses/_form.html.erb (16.3ms)
+  Rendered addresses/new.html.erb within layouts/application (19.6ms)
+Completed 500 Internal Server Error in 50ms (ActiveRecord: 1.9ms)
+
+
+  
+ActionView::Template::Error (undefined method `id' for nil:NilClass):
+    13:         <%= label :zip, "Zipcode", class: "data-label" %>: <%= form.text_field :zip, id: "zip", class: "data-value" %><br />
+    14:         <input type="hidden" name="address[user_id]" value="<%= @user.id %>">
+    15: 
+    16:         <%= puts "***== @address.id: #{@adress.id} ==***" %>
+    17: 
+    18:         <%= form.submit "Add Address", class: "submit_btn" %>
+    19:     </div>
+  
+app/views/addresses/_form.html.erb:16:in `block in _app_views_addresses__form_html_erb__2059732569222415024_70126673548840'
+app/views/addresses/_form.html.erb:6:in `_app_views_addresses__form_html_erb__2059732569222415024_70126673548840'
+app/views/addresses/new.html.erb:3:in `_app_views_addresses_new_html_erb__189175612465544463_70126686982400'
+Started GET "/users/10" for 127.0.0.1 at 2017-07-10 13:01:33 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mPost Load (1.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 11]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered users/show.html.erb within layouts/application (4.9ms)
+  Rendered users/_menu.html.erb (1.9ms)
+Completed 200 OK in 194ms (Views: 59.6ms | ActiveRecord: 23.9ms)
+
+
+Started GET "/users/10" for 127.0.0.1 at 2017-07-10 13:01:34 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 11]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (0.9ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered users/show.html.erb within layouts/application (3.3ms)
+  Rendered users/_menu.html.erb (3.6ms)
+Completed 200 OK in 47ms (Views: 39.2ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/users/10/addresses/new" for 127.0.0.1 at 2017-07-10 13:01:39 -0400
+Processing by AddressesController#new as HTML
+  Parameters: {"user_id"=>"10"}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering addresses/new.html.erb within layouts/application
+  Rendered addresses/_form.html.erb (8.3ms)
+  Rendered addresses/new.html.erb within layouts/application (11.7ms)
+Completed 500 Internal Server Error in 51ms (ActiveRecord: 1.4ms)
+
+
+  
+ActionView::Template::Error (undefined method `id' for nil:NilClass):
+    13:         <%= label :zip, "Zipcode", class: "data-label" %>: <%= form.text_field :zip, id: "zip", class: "data-value" %><br />
+    14:         <input type="hidden" name="address[user_id]" value="<%= @user.id %>">
+    15: 
+    16:         <%= puts "***== @address.id: #{@adress.id} ==***" %>
+    17: 
+    18:         <%= form.submit "Add Address", class: "submit_btn" %>
+    19:     </div>
+  
+app/views/addresses/_form.html.erb:16:in `block in _app_views_addresses__form_html_erb__2059732569222415024_70126701073160'
+app/views/addresses/_form.html.erb:6:in `_app_views_addresses__form_html_erb__2059732569222415024_70126701073160'
+app/views/addresses/new.html.erb:3:in `_app_views_addresses_new_html_erb__189175612465544463_70126701118640'
+Started GET "/users/10" for 127.0.0.1 at 2017-07-10 13:02:47 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 11]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered users/show.html.erb within layouts/application (2.7ms)
+  Rendered users/_menu.html.erb (1.7ms)
+Completed 200 OK in 39ms (Views: 31.7ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users/10/addresses/new" for 127.0.0.1 at 2017-07-10 13:03:39 -0400
+Processing by AddressesController#new as HTML
+  Parameters: {"user_id"=>"10"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering addresses/new.html.erb within layouts/application
+  Rendered addresses/_form.html.erb (10.1ms)
+  Rendered addresses/new.html.erb within layouts/application (13.2ms)
+Completed 500 Internal Server Error in 79ms (ActiveRecord: 12.8ms)
+
+
+  
+ActionView::Template::Error (undefined method `id' for nil:NilClass):
+    13:         <%= label :zip, "Zipcode", class: "data-label" %>: <%= form.text_field :zip, id: "zip", class: "data-value" %><br />
+    14:         <input type="hidden" name="address[user_id]" value="<%= @user.id %>">
+    15: 
+    16:         <%= puts "***== @address.id: #{@adress.id} ==***" %>
+    17: 
+    18:         <%= form.submit "Add Address", class: "submit_btn" %>
+    19:     </div>
+  
+app/views/addresses/_form.html.erb:16:in `block in _app_views_addresses__form_html_erb__2059732569222415024_70126700001100'
+app/views/addresses/_form.html.erb:6:in `_app_views_addresses__form_html_erb__2059732569222415024_70126700001100'
+app/views/addresses/new.html.erb:3:in `_app_views_addresses_new_html_erb__189175612465544463_70126700012080'
+Started GET "/users/10/addresses/new" for 127.0.0.1 at 2017-07-10 13:04:21 -0400
+Processing by AddressesController#new as HTML
+  Parameters: {"user_id"=>"10"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering addresses/new.html.erb within layouts/application
+  Rendered addresses/_form.html.erb (2.7ms)
+  Rendered addresses/new.html.erb within layouts/application (325.5ms)
+Completed 500 Internal Server Error in 351ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `addresses_path' for #<#<Class:0x007f8f4b1b3ac8>:0x007f8f4416b0e0>
+Did you mean?  user_address_path):
+    2: 
+    3: <%= render 'form', address: @address %>
+    4: 
+    5: <%= link_to 'Back', addresses_path %>
+  
+app/views/addresses/new.html.erb:5:in `_app_views_addresses_new_html_erb__189175612465544463_70126649446880'
+Started GET "/users/10/addresses/new" for 127.0.0.1 at 2017-07-10 13:05:03 -0400
+Processing by AddressesController#new as HTML
+  Parameters: {"user_id"=>"10"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering addresses/new.html.erb within layouts/application
+  Rendered addresses/_form.html.erb (5.0ms)
+  Rendered addresses/new.html.erb within layouts/application (9.2ms)
+  Rendered users/_menu.html.erb (2.7ms)
+Completed 200 OK in 69ms (Views: 63.3ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/users/10/addresses" for 127.0.0.1 at 2017-07-10 13:05:12 -0400
+Processing by AddressesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lq3TkpsihqICzGvyf+P0q46S9XX3EyX5LxBZNBxBUXPo9XCORC1aUmtto+mAoZYJrP84FsXBjxUC5nyV8iGRHg==", "address"=>{"street"=>"2251 Eisenhower Ave, APT#1312", "city"=>"Alexandria", "state"=>"VA", "zip"=>"22314", "user_id"=>"10"}, "commit"=>"Add Address", "user_id"=>"10"}
+Unpermitted parameter: :user_id
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  Rendering addresses/new.html.erb within layouts/application
+  Rendered addresses/_form.html.erb (217.1ms)
+  Rendered addresses/new.html.erb within layouts/application (223.3ms)
+Completed 500 Internal Server Error in 239ms (ActiveRecord: 0.4ms)
+
+
+  
+ActionView::Template::Error (undefined method `addresses_path' for #<#<Class:0x007f8f4b1b3ac8>:0x007f8f4a27b0d8>
+Did you mean?  user_address_path):
+    3: <%= puts "*** @user: #{@user.inspect} ***" %>
+    4: 
+    5: 
+    6: <%= form_for([@user, @address]) do |form| %>
+    7: 
+    8:     <div class="actions">
+    9:         <!-- content -->
+  
+app/views/addresses/_form.html.erb:6:in `_app_views_addresses__form_html_erb__2059732569222415024_70126700643080'
+app/views/addresses/new.html.erb:3:in `_app_views_addresses_new_html_erb__189175612465544463_70126700578640'
+app/controllers/addresses_controller.rb:45:in `block (2 levels) in create'
+app/controllers/addresses_controller.rb:40:in `create'
+Started GET "/users/10/addresses/new" for 127.0.0.1 at 2017-07-10 13:08:25 -0400
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AddressesController#new as HTML
+  Parameters: {"user_id"=>"10"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering addresses/new.html.erb within layouts/application
+  Rendered addresses/_form.html.erb (20.7ms)
+  Rendered addresses/new.html.erb within layouts/application (25.1ms)
+  Rendered users/_menu.html.erb (1.4ms)
+Completed 200 OK in 393ms (Views: 314.3ms | ActiveRecord: 16.0ms)
+
+
+Started GET "/users/10" for 127.0.0.1 at 2017-07-10 14:09:45 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mPost Load (8.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 11]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered users/show.html.erb within layouts/application (12.4ms)
+Completed 500 Internal Server Error in 196ms (ActiveRecord: 17.7ms)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    12:     <p> <%= post.content %> </p>
+    13: <% end %>
+    14: 
+    15: <% @addresses.each do |address| %>
+    16:     <%= link_to 'Edit', edit_user_address_path(@user, address) %> |
+    17:     <p> <%= address.street %> </p>
+    18:     <p> <%= address.city %>, <%= address.state %>  </p>
+  
+app/views/users/show.html.erb:15:in `_app_views_users_show_html_erb__4581755379050843610_70294661302500'
+Started GET "/users/10" for 127.0.0.1 at 2017-07-10 14:10:39 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 87ms (ActiveRecord: 14.2ms)
+
+
+  
+NoMethodError (undefined method `addresses' for #<User:0x007fdd80d8cc68>
+Did you mean?  address
+               address=):
+  
+app/controllers/users_controller.rb:83:in `show'
+Started GET "/users/10" for 127.0.0.1 at 2017-07-10 14:10:40 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.5ms)
+
+
+  
+NoMethodError (undefined method `addresses' for #<User:0x007fdd816bfd30>
+Did you mean?  address
+               address=):
+  
+app/controllers/users_controller.rb:83:in `show'
+Started GET "/users/10" for 127.0.0.1 at 2017-07-10 14:15:22 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 0.7ms)
+
+
+  
+NoMethodError (undefined method `addresses' for #<User:0x007fdd810ba5e8>
+Did you mean?  address
+               address=):
+  
+app/controllers/users_controller.rb:83:in `show'
+Started GET "/users/10" for 127.0.0.1 at 2017-07-10 14:15:24 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.4ms)
+
+
+  
+NoMethodError (undefined method `addresses' for #<User:0x007fdd82a56ab0>
+Did you mean?  address
+               address=):
+  
+app/controllers/users_controller.rb:83:in `show'
+Started GET "/users" for 127.0.0.1 at 2017-07-10 14:15:28 -0400
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 3]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 4]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 5]]
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 8]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 9]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered users/index.html.erb within layouts/application (21.8ms)
+  Rendered users/_menu.html.erb (1.5ms)
+Completed 200 OK in 91ms (Views: 48.9ms | ActiveRecord: 10.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-07-10 14:15:30 -0400
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[36mPost Load (1.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 3]]
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 4]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 5]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 8]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 9]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered users/index.html.erb within layouts/application (16.8ms)
+  Rendered users/_menu.html.erb (1.2ms)
+Completed 200 OK in 50ms (Views: 40.1ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-07-10 14:15:33 -0400
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 3]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 4]]
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 5]]
+  [1m[36mPost Load (0.8ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 8]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 9]]
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered users/index.html.erb within layouts/application (15.6ms)
+  Rendered users/_menu.html.erb (1.2ms)
+Completed 200 OK in 45ms (Views: 38.4ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/users/10" for 127.0.0.1 at 2017-07-10 14:15:36 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 0.3ms)
+
+
+  
+NoMethodError (undefined method `addresses' for #<User:0x007fdd82082728>
+Did you mean?  address
+               address=):
+  
+app/controllers/users_controller.rb:83:in `show'
+Started GET "/users/10" for 127.0.0.1 at 2017-07-10 14:18:36 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 11]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered users/show.html.erb within layouts/application (8.3ms)
+Completed 500 Internal Server Error in 95ms (ActiveRecord: 14.6ms)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    12:     <p> <%= post.content %> </p>
+    13: <% end %>
+    14: 
+    15: <% @addresses.each do |address| %>
+    16:     <%= link_to 'Edit', edit_user_address_path(@user, address) %> |
+    17:     <p> <%= address.street %> </p>
+    18:     <p> <%= address.city %>, <%= address.state %> </p>
+  
+app/views/users/show.html.erb:15:in `_app_views_users_show_html_erb__4581755379050843610_70294665106920'
+Started GET "/users/10" for 127.0.0.1 at 2017-07-10 14:18:38 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 11]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered users/show.html.erb within layouts/application (6.5ms)
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 1.4ms)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    12:     <p> <%= post.content %> </p>
+    13: <% end %>
+    14: 
+    15: <% @addresses.each do |address| %>
+    16:     <%= link_to 'Edit', edit_user_address_path(@user, address) %> |
+    17:     <p> <%= address.street %> </p>
+    18:     <p> <%= address.city %>, <%= address.state %> </p>
+  
+app/views/users/show.html.erb:15:in `_app_views_users_show_html_erb__4581755379050843610_70294674214580'
+Started GET "/users/10" for 127.0.0.1 at 2017-07-10 14:18:45 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (3.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mPost Load (1.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 11]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (2.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered users/show.html.erb within layouts/application (9.7ms)
+Completed 500 Internal Server Error in 32ms (ActiveRecord: 7.1ms)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    12:     <p> <%= post.content %> </p>
+    13: <% end %>
+    14: 
+    15: <!-- <% @addresses.each do |address| %>
+    16:     <%= link_to 'Edit', edit_user_address_path(@user, address) %> |
+    17:     <p> <%= address.street %> </p>
+    18:     <p> <%= address.city %>, <%= address.state %> </p>
+  
+app/views/users/show.html.erb:15:in `_app_views_users_show_html_erb__4581755379050843610_70294667032880'
+Started GET "/users/10" for 127.0.0.1 at 2017-07-10 14:19:06 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mPost Load (5.9ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 11]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (1.5ms)
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 6.1ms)
+
+
+  
+SyntaxError (/Users/Nobre/Desktop/Homework/Ruby/Rails/MPP_RailsBlogAlpha/app/views/users/show.html.erb:17: syntax error, unexpected '<'
+    <p> '.freeze;@output_buffer.app
+     ^
+/Users/Nobre/Desktop/Homework/Ruby/Rails/MPP_RailsBlogAlpha/app/views/users/show.html.erb:18: unknown regexp option - p
+/Users/Nobre/Desktop/Homework/Ruby/Rails/MPP_RailsBlogAlpha/app/views/users/show.html.erb:19: syntax error, unexpected '<'
+    <p> '.freeze;@output_buffer.app
+     ^
+/Users/Nobre/Desktop/Homework/Ruby/Rails/MPP_RailsBlogAlpha/app/views/users/show.html.erb:19: unterminated regexp meets end of file
+/Users/Nobre/Desktop/Homework/Ruby/Rails/MPP_RailsBlogAlpha/app/views/users/show.html.erb:19: syntax error, unexpected end-of-input, expecting ')'):
+  
+app/views/users/show.html.erb:17: syntax error, unexpected '<'
+app/views/users/show.html.erb:18: unknown regexp option - p
+app/views/users/show.html.erb:19: syntax error, unexpected '<'
+app/views/users/show.html.erb:19: unterminated regexp meets end of file
+app/views/users/show.html.erb:19: syntax error, unexpected end-of-input, expecting ')'
+Started GET "/users/10" for 127.0.0.1 at 2017-07-10 14:22:36 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 11]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered users/show.html.erb within layouts/application (3.4ms)
+  Rendered users/_menu.html.erb (1.3ms)
+Completed 200 OK in 105ms (Views: 31.0ms | ActiveRecord: 14.0ms)
+
+
+Started GET "/users/10" for 127.0.0.1 at 2017-07-10 14:22:39 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 11]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered users/show.html.erb within layouts/application (3.4ms)
+  Rendered users/_menu.html.erb (1.3ms)
+Completed 200 OK in 38ms (Views: 30.6ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/users/10/edit" for 127.0.0.1 at 2017-07-10 14:22:43 -0400
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (8.5ms)
+  Rendered users/edit.html.erb within layouts/application (25.1ms)
+  Rendered users/_menu.html.erb (1.5ms)
+Completed 200 OK in 66ms (Views: 56.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/10/edit" for 127.0.0.1 at 2017-07-10 14:23:04 -0400
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (4.9ms)
+  Rendered users/edit.html.erb within layouts/application (9.2ms)
+  Rendered users/_menu.html.erb (1.3ms)
+Completed 200 OK in 57ms (Views: 50.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/10/posts/new" for 127.0.0.1 at 2017-07-10 14:23:07 -0400
+Processing by PostsController#new as HTML
+  Parameters: {"user_id"=>"10"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (3.8ms)
+  Rendered posts/new.html.erb within layouts/application (7.0ms)
+  Rendered users/_menu.html.erb (1.5ms)
+Completed 200 OK in 66ms (Views: 40.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/10" for 127.0.0.1 at 2017-07-10 14:23:08 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mPost Load (1.8ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 11]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (1.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered users/show.html.erb within layouts/application (5.1ms)
+  Rendered users/_menu.html.erb (1.3ms)
+Completed 200 OK in 79ms (Views: 63.1ms | ActiveRecord: 5.8ms)
+
+
+Started GET "/users/10" for 127.0.0.1 at 2017-07-10 14:27:37 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 11]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered users/show.html.erb within layouts/application (3.3ms)
+  Rendered users/_menu.html.erb (1.2ms)
+Completed 200 OK in 94ms (Views: 28.6ms | ActiveRecord: 16.0ms)
+
+
+Started GET "/users/10" for 127.0.0.1 at 2017-07-10 14:27:38 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mPost Load (0.9ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 11]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered users/show.html.erb within layouts/application (2.3ms)
+  Rendered users/_menu.html.erb (1.4ms)
+Completed 200 OK in 39ms (Views: 31.0ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-07-10 14:27:40 -0400
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 3]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 4]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 5]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 8]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 9]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered users/index.html.erb within layouts/application (17.2ms)
+  Rendered users/_menu.html.erb (1.3ms)
+Completed 200 OK in 87ms (Views: 40.4ms | ActiveRecord: 10.5ms)
+
+
+Started GET "/users/10" for 127.0.0.1 at 2017-07-10 14:27:41 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (3.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mPost Load (14.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 11]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (6.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered users/show.html.erb within layouts/application (9.7ms)
+  Rendered users/_menu.html.erb (1.4ms)
+Completed 200 OK in 126ms (Views: 77.2ms | ActiveRecord: 23.8ms)
+
+
+Started GET "/users/10/addresses/new" for 127.0.0.1 at 2017-07-10 14:27:42 -0400
+Processing by AddressesController#new as HTML
+  Parameters: {"user_id"=>"10"}
+  [1m[36mUser Load (4.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering addresses/new.html.erb within layouts/application
+  Rendered addresses/_form.html.erb (4.6ms)
+  Rendered addresses/new.html.erb within layouts/application (8.7ms)
+  Rendered users/_menu.html.erb (1.3ms)
+Completed 200 OK in 119ms (Views: 55.5ms | ActiveRecord: 17.1ms)
+
+
+Started GET "/users/10/addresses/new" for 127.0.0.1 at 2017-07-10 14:28:03 -0400
+Processing by AddressesController#new as HTML
+  Parameters: {"user_id"=>"10"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering addresses/new.html.erb within layouts/application
+  Rendered addresses/_form.html.erb (3.1ms)
+  Rendered addresses/new.html.erb within layouts/application (6.1ms)
+  Rendered users/_menu.html.erb (1.4ms)
+Completed 200 OK in 87ms (Views: 31.9ms | ActiveRecord: 13.8ms)
+
+
+Started GET "/users/10" for 127.0.0.1 at 2017-07-10 14:28:05 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 11]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered users/show.html.erb within layouts/application (4.9ms)
+  Rendered users/_menu.html.erb (5.2ms)
+Completed 200 OK in 127ms (Views: 59.9ms | ActiveRecord: 13.3ms)
+
+
+Started GET "/users/10" for 127.0.0.1 at 2017-07-10 14:28:07 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (3.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mPost Load (2.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 11]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered users/show.html.erb within layouts/application (14.3ms)
+  Rendered users/_menu.html.erb (1.5ms)
+Completed 200 OK in 66ms (Views: 52.1ms | ActiveRecord: 5.6ms)
+
+
+Started GET "/users/10" for 127.0.0.1 at 2017-07-10 14:28:08 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mPost Load (0.8ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 11]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered users/show.html.erb within layouts/application (44.9ms)
+  Rendered users/_menu.html.erb (2.1ms)
+Completed 200 OK in 107ms (Views: 88.4ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/users/10/addresses/new" for 127.0.0.1 at 2017-07-10 14:28:09 -0400
+Processing by AddressesController#new as HTML
+  Parameters: {"user_id"=>"10"}
+  [1m[36mUser Load (4.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering addresses/new.html.erb within layouts/application
+  Rendered addresses/_form.html.erb (26.7ms)
+  Rendered addresses/new.html.erb within layouts/application (29.9ms)
+  Rendered users/_menu.html.erb (1.6ms)
+Completed 200 OK in 82ms (Views: 58.6ms | ActiveRecord: 4.7ms)
+
+
+Started GET "/users/10/addresses/new" for 127.0.0.1 at 2017-07-10 14:28:21 -0400
+Processing by AddressesController#new as HTML
+  Parameters: {"user_id"=>"10"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/Nobre/Desktop/Homework/Ruby/Rails/MPP_RailsBlogAlpha/app/models/address.rb:7: syntax error, unexpected =>
+mericality => true, length: => {is: 5}
+                              ^):
+  
+app/models/address.rb:7: syntax error, unexpected =>
+app/controllers/addresses_controller.rb:19:in `new'
+Started GET "/users/10/addresses/new" for 127.0.0.1 at 2017-07-10 14:28:38 -0400
+Processing by AddressesController#new as HTML
+  Parameters: {"user_id"=>"10"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering addresses/new.html.erb within layouts/application
+  Rendered addresses/_form.html.erb (4.0ms)
+  Rendered addresses/new.html.erb within layouts/application (8.2ms)
+  Rendered users/_menu.html.erb (2.1ms)
+Completed 200 OK in 92ms (Views: 35.3ms | ActiveRecord: 12.7ms)
+
+
+Started GET "/feed" for 127.0.0.1 at 2017-07-10 14:36:11 -0400
+Processing by UsersController#feed as HTML
+  [1m[36mUser Load (7.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering users/feed.html.erb within layouts/application
+  Rendered users/feed.html.erb within layouts/application (0.7ms)
+  Rendered users/_menu.html.erb (1.4ms)
+Completed 200 OK in 74ms (Views: 32.9ms | ActiveRecord: 7.2ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-07-10 14:36:12 -0400
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 3]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 4]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 5]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 8]]
+  [1m[36mPost Load (0.8ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 9]]
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered users/index.html.erb within layouts/application (53.4ms)
+  Rendered users/_menu.html.erb (1.3ms)
+Completed 200 OK in 131ms (Views: 75.7ms | ActiveRecord: 17.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-07-10 14:36:15 -0400
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[36mPost Load (1.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 3]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 4]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 5]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 8]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 9]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered users/index.html.erb within layouts/application (16.3ms)
+  Rendered users/_menu.html.erb (1.4ms)
+Completed 200 OK in 46ms (Views: 39.4ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/users/9/posts/7" for 127.0.0.1 at 2017-07-10 14:36:18 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"user_id"=>"9", "id"=>"7"}
+  [1m[36mPost Load (0.9ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Load (1.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered comments/_form.html.erb (16.1ms)
+  Rendered posts/show.html.erb within layouts/application (38.3ms)
+  Rendered users/_menu.html.erb (1.3ms)
+Completed 200 OK in 98ms (Views: 67.0ms | ActiveRecord: 4.1ms)
+
+
+Started POST "/users/10/comments" for 127.0.0.1 at 2017-07-10 14:36:26 -0400
+Processing by CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"astWX09Yo/RDMswrpz13+yNje1npNxWh4xb/ZGLYgeIhQI1J0qFDMSUJ6Ri8HUnWggmVWW6mUJKH8MURoHhb4Q==", "comment"=>{"content"=>"cool post", "user_id"=>"10", "post_id"=>"7"}, "commit"=>"Comment", "user_id"=>"10"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35mSQL (1.5ms)[0m  [1m[32mINSERT INTO "comments" ("user_id", "post_id", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 10], ["post_id", 7], ["content", "cool post"], ["created_at", "2017-07-10 18:36:26.382967"], ["updated_at", "2017-07-10 18:36:26.382967"]]
+  [1m[35m (177.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/10/posts/7
+Completed 302 Found in 193ms (ActiveRecord: 179.6ms)
+
+
+Started GET "/users/10/posts/7" for 127.0.0.1 at 2017-07-10 14:36:26 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"user_id"=>"10", "id"=>"7"}
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered comments/_form.html.erb (2.5ms)
+  Rendered posts/show.html.erb within layouts/application (7.9ms)
+  Rendered users/_menu.html.erb (1.3ms)
+Completed 200 OK in 40ms (Views: 34.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-07-10 14:36:29 -0400
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mPost Load (3.9ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 3]]
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 4]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 5]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 8]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 9]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered users/index.html.erb within layouts/application (27.2ms)
+  Rendered users/_menu.html.erb (1.2ms)
+Completed 200 OK in 69ms (Views: 58.2ms | ActiveRecord: 6.8ms)
+
+
+Started GET "/users/10/posts/new" for 127.0.0.1 at 2017-07-10 14:36:39 -0400
+Processing by PostsController#new as HTML
+  Parameters: {"user_id"=>"10"}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (2.7ms)
+  Rendered posts/new.html.erb within layouts/application (14.3ms)
+  Rendered users/_menu.html.erb (1.2ms)
+Completed 200 OK in 59ms (Views: 42.6ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-07-10 14:36:40 -0400
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mPost Load (15.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 3]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 4]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 5]]
+  [1m[36mPost Load (1.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 8]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 9]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered users/index.html.erb within layouts/application (88.1ms)
+  Rendered users/_menu.html.erb (1.8ms)
+Completed 200 OK in 171ms (Views: 147.7ms | ActiveRecord: 18.6ms)
+
+
+Started GET "/users/10" for 127.0.0.1 at 2017-07-10 14:36:47 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mPost Load (12.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 11]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered users/show.html.erb within layouts/application (3.3ms)
+  Rendered users/_menu.html.erb (1.3ms)
+Completed 200 OK in 66ms (Views: 35.3ms | ActiveRecord: 13.2ms)
+
+
+Started GET "/users/10/addresses/new" for 127.0.0.1 at 2017-07-10 14:40:06 -0400
+Processing by AddressesController#new as HTML
+  Parameters: {"user_id"=>"10"}
+  [1m[36mUser Load (9.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering addresses/new.html.erb within layouts/application
+  Rendered addresses/_form.html.erb (9.5ms)
+  Rendered addresses/new.html.erb within layouts/application (15.5ms)
+  Rendered users/_menu.html.erb (1.3ms)
+Completed 200 OK in 66ms (Views: 46.2ms | ActiveRecord: 9.6ms)
+
+
+Started POST "/users/10/addresses" for 127.0.0.1 at 2017-07-10 14:40:12 -0400
+Processing by AddressesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"y+FYjs6H6lPotfBmOn82Xr6AmEf/cZD55vJ+tgXtivsUUeYeNwXYKuuoU8MHgr6qOgBr7phkNFK8tuMWERfL5g==", "address"=>{"street"=>"2251 Eisenhower Ave, APT#1312", "city"=>"Alexandria", "state"=>"VA", "zip"=>"22314", "user_id"=>"10"}, "commit"=>"Add Address", "user_id"=>"10"}
+Unpermitted parameter: :user_id
+  [1m[35m (1.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.8ms)[0m  [1m[31mROLLBACK[0m
+  Rendering addresses/new.html.erb within layouts/application
+  Rendered addresses/_form.html.erb (256.2ms)
+  Rendered addresses/new.html.erb within layouts/application (259.2ms)
+Completed 500 Internal Server Error in 298ms (ActiveRecord: 3.9ms)
+
+
+  
+ActionView::Template::Error (undefined method `addresses_path' for #<#<Class:0x007fdd816ccaf8>:0x007fdd80bae9a0>
+Did you mean?  user_address_path):
+    3: <%= puts "*** @user: #{@user.inspect} ***" %>
+    4: 
+    5: 
+    6: <%= form_for([@user, @address]) do |form| %>
+    7: 
+    8:     <div class="actions">
+    9:         <!-- street, city, state, zip -->
+  
+app/views/addresses/_form.html.erb:6:in `_app_views_addresses__form_html_erb___1298666459316412846_70294662375860'
+app/views/addresses/new.html.erb:3:in `_app_views_addresses_new_html_erb__449615825810219292_70294662113660'
+app/controllers/addresses_controller.rb:45:in `block (2 levels) in create'
+app/controllers/addresses_controller.rb:40:in `create'
+Started GET "/users/10" for 127.0.0.1 at 2017-07-10 14:43:17 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 11]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered users/show.html.erb within layouts/application (4.5ms)
+  Rendered users/_menu.html.erb (1.6ms)
+Completed 200 OK in 120ms (Views: 39.1ms | ActiveRecord: 15.0ms)
+
+
+Started GET "/users/10/addresses/new" for 127.0.0.1 at 2017-07-10 14:43:22 -0400
+Processing by AddressesController#new as HTML
+  Parameters: {"user_id"=>"10"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering addresses/new.html.erb within layouts/application
+  Rendered addresses/_form.html.erb (4.7ms)
+  Rendered addresses/new.html.erb within layouts/application (8.4ms)
+  Rendered users/_menu.html.erb (1.8ms)
+Completed 200 OK in 167ms (Views: 64.0ms | ActiveRecord: 39.9ms)
+
+
+Started GET "/users/10/addresses/new" for 127.0.0.1 at 2017-07-10 14:44:32 -0400
+Processing by AddressesController#new as HTML
+  Parameters: {"user_id"=>"10"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering addresses/new.html.erb within layouts/application
+  Rendered addresses/_form.html.erb (3.4ms)
+  Rendered addresses/new.html.erb within layouts/application (6.5ms)
+  Rendered users/_menu.html.erb (1.3ms)
+Completed 200 OK in 88ms (Views: 32.8ms | ActiveRecord: 13.0ms)
+
+
+Started POST "/users/10/addresses" for 127.0.0.1 at 2017-07-10 14:44:34 -0400
+Processing by AddressesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"jAQRw1pIvYIQvJob5xS5EwuIHqJYGTOnyoFOf5wKF9nyXLLfhUdhcnkdUgAYVtuxKeXTwWrLmUvnd2vecmrXtA==", "address"=>{"street"=>"", "city"=>"", "state"=>"", "zip"=>"", "user_id"=>"10"}, "commit"=>"Add Address", "user_id"=>"10"}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[35m (0.9ms)[0m  [1m[31mROLLBACK[0m
+  Rendering addresses/new.html.erb within layouts/application
+  Rendered addresses/_form.html.erb (217.5ms)
+  Rendered addresses/new.html.erb within layouts/application (223.1ms)
+Completed 500 Internal Server Error in 265ms (ActiveRecord: 2.7ms)
+
+
+  
+ActionView::Template::Error (undefined method `addresses_path' for #<#<Class:0x007fdd822c08f0>:0x007fdd820798a8>
+Did you mean?  user_address_path):
+    3: <%= puts "*** @user: #{@user.inspect} ***" %>
+    4: 
+    5: 
+    6: <%= form_for([@user, @address]) do |form| %>
+    7: 
+    8:     <div class="actions">
+    9:         <!-- street, city, state, zip -->
+  
+app/views/addresses/_form.html.erb:6:in `_app_views_addresses__form_html_erb___1298666459316412846_70294672982580'
+app/views/addresses/new.html.erb:3:in `_app_views_addresses_new_html_erb__449615825810219292_70294673015020'
+app/controllers/addresses_controller.rb:45:in `block (2 levels) in create'
+app/controllers/addresses_controller.rb:40:in `create'
+Started GET "/users/10/addresses/new" for 127.0.0.1 at 2017-07-10 14:45:14 -0400
+Processing by AddressesController#new as HTML
+  Parameters: {"user_id"=>"10"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering addresses/new.html.erb within layouts/application
+  Rendered addresses/_form.html.erb (3.0ms)
+  Rendered addresses/new.html.erb within layouts/application (5.8ms)
+  Rendered users/_menu.html.erb (1.3ms)
+Completed 200 OK in 43ms (Views: 36.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/10/addresses/new" for 127.0.0.1 at 2017-07-10 14:45:16 -0400
+Processing by AddressesController#new as HTML
+  Parameters: {"user_id"=>"10"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering addresses/new.html.erb within layouts/application
+  Rendered addresses/_form.html.erb (2.7ms)
+  Rendered addresses/new.html.erb within layouts/application (5.8ms)
+  Rendered users/_menu.html.erb (1.5ms)
+Completed 200 OK in 40ms (Views: 33.9ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/users/10/addresses" for 127.0.0.1 at 2017-07-10 14:45:19 -0400
+Processing by AddressesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"YrbFviBWb4ULQA5yhJuc8aHQ8eM5cCI8UBOEzlQ+ZC4c7mai/1mzdWLhxml72f5Tg708gAuiiNB95aFvul6kQw==", "address"=>{"street"=>"2251 Eisenhower Ave, APT#1312", "city"=>"Alexandria", "state"=>"VA", "zip"=>"22314", "user_id"=>"10"}, "commit"=>"Add Address", "user_id"=>"10"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "addresses" ("user_id", "street", "city", "state", "zip", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["user_id", 10], ["street", "2251 Eisenhower Ave, APT#1312"], ["city", "Alexandria"], ["state", "VA"], ["zip", 22314], ["created_at", "2017-07-10 18:45:19.858341"], ["updated_at", "2017-07-10 18:45:19.858341"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/10
+Completed 302 Found in 38ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/users/10" for 127.0.0.1 at 2017-07-10 14:45:19 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 11]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered users/show.html.erb within layouts/application (3.4ms)
+  Rendered users/_menu.html.erb (1.6ms)
+Completed 200 OK in 122ms (Views: 38.8ms | ActiveRecord: 32.2ms)
+
+
+Started GET "/users/10" for 127.0.0.1 at 2017-07-10 14:46:45 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 91ms (ActiveRecord: 16.7ms)
+
+
+  
+NoMethodError (undefined method `addresses' for #<User:0x007fdd80ca36a8>
+Did you mean?  address
+               address=):
+  
+app/controllers/users_controller.rb:83:in `show'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+Started GET "/users/10" for 127.0.0.1 at 2017-07-10 14:50:56 -0400
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 107ms (ActiveRecord: 15.8ms)
+
+
+  
+NoMethodError (undefined method `addresses' for #<User:0x007ff525e3d498>
+Did you mean?  address
+               address=):
+  
+app/controllers/users_controller.rb:83:in `show'
+Started GET "/users/10" for 127.0.0.1 at 2017-07-10 14:51:15 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (5.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 57ms (ActiveRecord: 28.2ms)
+
+
+  
+NoMethodError (undefined method `addresses' for #<User:0x007ff525972120>
+Did you mean?  address
+               address=):
+  
+app/controllers/users_controller.rb:83:in `show'
+  [1m[36mAddress Load (0.4ms)[0m  [1m[34mSELECT  "addresses".* FROM "addresses" WHERE "addresses"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mAddress Load (0.8ms)[0m  [1m[34mSELECT  "addresses".* FROM "addresses" WHERE "addresses"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAddress Load (0.4ms)[0m  [1m[34mSELECT  "addresses".* FROM "addresses" WHERE "addresses"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 1]]
+Started GET "/users/10" for 127.0.0.1 at 2017-07-10 14:54:16 -0400
+Started GET "/users" for 127.0.0.1 at 2017-07-10 14:54:26 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mAddress Load (0.6ms)[0m  [1m[34mSELECT  "addresses".* FROM "addresses" WHERE "addresses"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 1]]
+  [1m[36mPost Load (2.7ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 11]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered users/show.html.erb within layouts/application (15.2ms)
+Completed 500 Internal Server Error in 125ms (ActiveRecord: 12.4ms)
+
+
+  
+ActionView::Template::Error (undefined method `each' for #<Address:0x007ff524a39708>):
+    12:     <p> <%= post.content %> </p>
+    13: <% end %>
+    14: 
+    15: <% @addresses.each do |address| %>
+    16:     <p> <%= address.street %> </p>
+    17:     <p> <%= address.city %>, <%= address.state %> </p>
+    18:     <p> <%= address.zip %> </p>
+  
+app/views/users/show.html.erb:15:in `_app_views_users_show_html_erb__2035343252045746867_70345429060760'
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (13.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mPost Load (2.8ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 3]]
+  [1m[36mPost Load (5.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 4]]
+  [1m[36mPost Load (5.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 5]]
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 8]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 9]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered users/index.html.erb within layouts/application (100.6ms)
+  Rendered users/_menu.html.erb (4.2ms)
+Completed 200 OK in 509ms (Views: 447.5ms | ActiveRecord: 34.4ms)
+
+
+Started GET "/users/10" for 127.0.0.1 at 2017-07-10 14:54:36 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mAddress Load (1.3ms)[0m  [1m[34mSELECT  "addresses".* FROM "addresses" WHERE "addresses"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 1]]
+  [1m[36mPost Load (1.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 11]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered users/show.html.erb within layouts/application (15.2ms)
+Completed 500 Internal Server Error in 108ms (ActiveRecord: 29.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `each' for #<Address:0x007ff5284f0a90>):
+    12:     <p> <%= post.content %> </p>
+    13: <% end %>
+    14: 
+    15: <% @addresses.each do |address| %>
+    16:     <p> <%= address.street %> </p>
+    17:     <p> <%= address.city %>, <%= address.state %> </p>
+    18:     <p> <%= address.zip %> </p>
+  
+app/views/users/show.html.erb:15:in `_app_views_users_show_html_erb__2035343252045746867_70345460045740'
+Started GET "/users" for 127.0.0.1 at 2017-07-10 14:57:07 -0400
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 3]]
+  [1m[36mPost Load (10.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 4]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 5]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 8]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 9]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered users/index.html.erb within layouts/application (124.0ms)
+  Rendered users/_menu.html.erb (2.6ms)
+Completed 200 OK in 221ms (Views: 154.9ms | ActiveRecord: 36.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-07-10 14:57:09 -0400
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 3]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 4]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 5]]
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 8]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 9]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered users/index.html.erb within layouts/application (18.0ms)
+  Rendered users/_menu.html.erb (2.2ms)
+Completed 200 OK in 67ms (Views: 59.5ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-07-10 14:57:11 -0400
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 3]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 4]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 5]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 8]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 9]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered users/index.html.erb within layouts/application (16.3ms)
+  Rendered users/_menu.html.erb (4.7ms)
+Completed 200 OK in 59ms (Views: 52.4ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/users/10" for 127.0.0.1 at 2017-07-10 14:57:13 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mAddress Load (5.7ms)[0m  [1m[34mSELECT  "addresses".* FROM "addresses" WHERE "addresses"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 1]]
+  [1m[36mPost Load (0.9ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 11]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered users/show.html.erb within layouts/application (5.6ms)
+  Rendered users/_menu.html.erb (1.2ms)
+Completed 200 OK in 83ms (Views: 33.6ms | ActiveRecord: 8.4ms)
+
+
+Started GET "/users/10/addresses/new.2" for 127.0.0.1 at 2017-07-10 14:59:34 -0400
+Processing by AddressesController#new as 
+  Parameters: {"user_id"=>"10"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering addresses/new.html.erb within layouts/application
+  Rendered addresses/_form.html.erb (25.5ms)
+  Rendered addresses/new.html.erb within layouts/application (57.0ms)
+  Rendered users/_menu.html.erb (1.3ms)
+Completed 200 OK in 216ms (Views: 133.2ms | ActiveRecord: 13.9ms)
+
+
+Started GET "/users/10" for 127.0.0.1 at 2017-07-10 14:59:40 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mAddress Load (0.5ms)[0m  [1m[34mSELECT  "addresses".* FROM "addresses" WHERE "addresses"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 1]]
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 11]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered users/show.html.erb within layouts/application (3.5ms)
+  Rendered users/_menu.html.erb (1.4ms)
+Completed 200 OK in 73ms (Views: 30.3ms | ActiveRecord: 7.6ms)
+
+
+Started GET "/users/10" for 127.0.0.1 at 2017-07-10 15:00:29 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mAddress Load (0.4ms)[0m  [1m[34mSELECT  "addresses".* FROM "addresses" WHERE "addresses"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 1]]
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 11]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 11]]
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 11]]
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 11]]
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 11]]
+  Rendered users/show.html.erb within layouts/application (184.6ms)
+Completed 500 Internal Server Error in 202ms (ActiveRecord: 1.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `edit_address_path' for #<#<Class:0x007ff528051840>:0x007ff525ded588>
+Did you mean?  edit_user_address_path
+               user_address_path):
+    2: <%= link_to 'Back', users_path %>
+    3: <%= link_to 'New Post', new_user_post_path(@user, @post) %>
+    4: <%= link_to 'Address', new_user_address_path(@user, @address) %>
+    5: <%= link_to 'Edit', edit_address_path(@address) %>
+    6: 
+    7: 
+    8: <p><%= @user.fname + " " + @user.lname %></p>
+  
+app/views/users/show.html.erb:5:in `_app_views_users_show_html_erb__2035343252045746867_70345439556180'
+Started GET "/users/10" for 127.0.0.1 at 2017-07-10 15:00:41 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mAddress Load (0.5ms)[0m  [1m[34mSELECT  "addresses".* FROM "addresses" WHERE "addresses"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 1]]
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 11]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 11]]
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 11]]
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 11]]
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 11]]
+  Rendered users/show.html.erb within layouts/application (186.9ms)
+Completed 500 Internal Server Error in 204ms (ActiveRecord: 2.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `edit_address_path' for #<#<Class:0x007ff528051840>:0x007ff525df7a88>
+Did you mean?  edit_user_address_path
+               user_address_path):
+    2: <%= link_to 'Back', users_path %>
+    3: <%= link_to 'New Post', new_user_post_path(@user, @post) %>
+    4: <%= link_to 'Address', new_user_address_path(@user, @address) %>
+    5: <%= link_to 'Edit', edit_address_path(@user, @address) %>
+    6: 
+    7: 
+    8: <p><%= @user.fname + " " + @user.lname %></p>
+  
+app/views/users/show.html.erb:5:in `_app_views_users_show_html_erb__2035343252045746867_70345431617420'
+Started GET "/users/10" for 127.0.0.1 at 2017-07-10 15:00:43 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mAddress Load (0.7ms)[0m  [1m[34mSELECT  "addresses".* FROM "addresses" WHERE "addresses"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 1]]
+  [1m[36mPost Load (1.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 11]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 11]]
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 11]]
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 11]]
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 11]]
+  Rendered users/show.html.erb within layouts/application (185.2ms)
+Completed 500 Internal Server Error in 204ms (ActiveRecord: 2.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `edit_address_path' for #<#<Class:0x007ff528051840>:0x007ff524d1c970>
+Did you mean?  edit_user_address_path
+               user_address_path):
+    2: <%= link_to 'Back', users_path %>
+    3: <%= link_to 'New Post', new_user_post_path(@user, @post) %>
+    4: <%= link_to 'Address', new_user_address_path(@user, @address) %>
+    5: <%= link_to 'Edit', edit_address_path(@user, @address) %>
+    6: 
+    7: 
+    8: <p><%= @user.fname + " " + @user.lname %></p>
+  
+app/views/users/show.html.erb:5:in `_app_views_users_show_html_erb__2035343252045746867_70345438449300'
+Started GET "/users/10" for 127.0.0.1 at 2017-07-10 15:01:36 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mAddress Load (0.7ms)[0m  [1m[34mSELECT  "addresses".* FROM "addresses" WHERE "addresses"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 1]]
+  [1m[36mPost Load (5.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 11]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (2.6ms)
+Completed 500 Internal Server Error in 31ms (ActiveRecord: 6.8ms)
+
+
+  
+SyntaxError (/Users/Nobre/Desktop/Homework/Ruby/Rails/MPP_RailsBlogAlpha/app/views/users/show.html.erb:5: syntax error, unexpected tIDENTIFIER, expecting keyword_do or '{' or '('
+'Edit', edit_user address_path(@user, @address) );@output_bu
+                              ^
+/Users/Nobre/Desktop/Homework/Ruby/Rails/MPP_RailsBlogAlpha/app/views/users/show.html.erb:10: syntax error, unexpected keyword_do_block, expecting keyword_end
+'.freeze; @posts.each do |post| 
+                        ^
+/Users/Nobre/Desktop/Homework/Ruby/Rails/MPP_RailsBlogAlpha/app/views/users/show.html.erb:21: syntax error, unexpected keyword_ensure, expecting end-of-input
+          ensure
+                ^):
+  
+app/views/users/show.html.erb:5: syntax error, unexpected tIDENTIFIER, expecting keyword_do or '{' or '('
+app/views/users/show.html.erb:10: syntax error, unexpected keyword_do_block, expecting keyword_end
+app/views/users/show.html.erb:21: syntax error, unexpected keyword_ensure, expecting end-of-input
+Started GET "/users/10" for 127.0.0.1 at 2017-07-10 15:01:40 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mAddress Load (0.5ms)[0m  [1m[34mSELECT  "addresses".* FROM "addresses" WHERE "addresses"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 1]]
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 11]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (1.5ms)
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 1.9ms)
+
+
+  
+SyntaxError (/Users/Nobre/Desktop/Homework/Ruby/Rails/MPP_RailsBlogAlpha/app/views/users/show.html.erb:5: syntax error, unexpected tIDENTIFIER, expecting keyword_do or '{' or '('
+'Edit', edit_user address_path(@user, @address) );@output_bu
+                              ^
+/Users/Nobre/Desktop/Homework/Ruby/Rails/MPP_RailsBlogAlpha/app/views/users/show.html.erb:10: syntax error, unexpected keyword_do_block, expecting keyword_end
+'.freeze; @posts.each do |post| 
+                        ^
+/Users/Nobre/Desktop/Homework/Ruby/Rails/MPP_RailsBlogAlpha/app/views/users/show.html.erb:21: syntax error, unexpected keyword_ensure, expecting end-of-input
+          ensure
+                ^):
+  
+app/views/users/show.html.erb:5: syntax error, unexpected tIDENTIFIER, expecting keyword_do or '{' or '('
+app/views/users/show.html.erb:10: syntax error, unexpected keyword_do_block, expecting keyword_end
+app/views/users/show.html.erb:21: syntax error, unexpected keyword_ensure, expecting end-of-input
+Started GET "/users/10" for 127.0.0.1 at 2017-07-10 15:01:48 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mAddress Load (0.6ms)[0m  [1m[34mSELECT  "addresses".* FROM "addresses" WHERE "addresses"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 1]]
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 11]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (2.3ms)
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 1.7ms)
+
+
+  
+SyntaxError (/Users/Nobre/Desktop/Homework/Ruby/Rails/MPP_RailsBlogAlpha/app/views/users/show.html.erb:5: syntax error, unexpected tIDENTIFIER, expecting keyword_do or '{' or '('
+'Edit', edit_user address_path(@address) );@output_buffer.sa
+                              ^
+/Users/Nobre/Desktop/Homework/Ruby/Rails/MPP_RailsBlogAlpha/app/views/users/show.html.erb:10: syntax error, unexpected keyword_do_block, expecting keyword_end
+'.freeze; @posts.each do |post| 
+                        ^
+/Users/Nobre/Desktop/Homework/Ruby/Rails/MPP_RailsBlogAlpha/app/views/users/show.html.erb:21: syntax error, unexpected keyword_ensure, expecting end-of-input
+          ensure
+                ^):
+  
+app/views/users/show.html.erb:5: syntax error, unexpected tIDENTIFIER, expecting keyword_do or '{' or '('
+app/views/users/show.html.erb:10: syntax error, unexpected keyword_do_block, expecting keyword_end
+app/views/users/show.html.erb:21: syntax error, unexpected keyword_ensure, expecting end-of-input
+Started GET "/users/10" for 127.0.0.1 at 2017-07-10 15:01:50 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mAddress Load (6.0ms)[0m  [1m[34mSELECT  "addresses".* FROM "addresses" WHERE "addresses"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 1]]
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 11]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (1.8ms)
+Completed 500 Internal Server Error in 26ms (ActiveRecord: 7.7ms)
+
+
+  
+SyntaxError (/Users/Nobre/Desktop/Homework/Ruby/Rails/MPP_RailsBlogAlpha/app/views/users/show.html.erb:5: syntax error, unexpected tIDENTIFIER, expecting keyword_do or '{' or '('
+'Edit', edit_user address_path(@address) );@output_buffer.sa
+                              ^
+/Users/Nobre/Desktop/Homework/Ruby/Rails/MPP_RailsBlogAlpha/app/views/users/show.html.erb:10: syntax error, unexpected keyword_do_block, expecting keyword_end
+'.freeze; @posts.each do |post| 
+                        ^
+/Users/Nobre/Desktop/Homework/Ruby/Rails/MPP_RailsBlogAlpha/app/views/users/show.html.erb:21: syntax error, unexpected keyword_ensure, expecting end-of-input
+          ensure
+                ^):
+  
+app/views/users/show.html.erb:5: syntax error, unexpected tIDENTIFIER, expecting keyword_do or '{' or '('
+app/views/users/show.html.erb:10: syntax error, unexpected keyword_do_block, expecting keyword_end
+app/views/users/show.html.erb:21: syntax error, unexpected keyword_ensure, expecting end-of-input
+Started GET "/users" for 127.0.0.1 at 2017-07-10 15:03:28 -0400
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 3]]
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 4]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 5]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 8]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 9]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered users/index.html.erb within layouts/application (21.2ms)
+  Rendered users/_menu.html.erb (1.3ms)
+Completed 200 OK in 79ms (Views: 47.1ms | ActiveRecord: 10.5ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-07-10 15:03:41 -0400
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[36mPost Load (0.9ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 3]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 4]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 5]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 8]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 9]]
+  [1m[36mPost Load (1.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered users/index.html.erb within layouts/application (93.1ms)
+  Rendered users/_menu.html.erb (1.3ms)
+Completed 200 OK in 504ms (Views: 422.8ms | ActiveRecord: 26.1ms)
+
+
+Started GET "/users/10" for 127.0.0.1 at 2017-07-10 15:03:44 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mAddress Load (0.7ms)[0m  [1m[34mSELECT  "addresses".* FROM "addresses" WHERE "addresses"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 1]]
+  [1m[36mPost Load (1.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 11]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (1.1ms)
+Completed 500 Internal Server Error in 69ms (ActiveRecord: 23.5ms)
+
+
+  
+SyntaxError (/Users/Nobre/Desktop/Homework/Ruby/Rails/MPP_RailsBlogAlpha/app/views/users/show.html.erb:5: syntax error, unexpected tIDENTIFIER, expecting keyword_do or '{' or '('
+dress', edit_user address_path(@user, @address) );@output_bu
+                              ^
+/Users/Nobre/Desktop/Homework/Ruby/Rails/MPP_RailsBlogAlpha/app/views/users/show.html.erb:10: syntax error, unexpected keyword_do_block, expecting keyword_end
+'.freeze; @posts.each do |post| 
+                        ^
+/Users/Nobre/Desktop/Homework/Ruby/Rails/MPP_RailsBlogAlpha/app/views/users/show.html.erb:24: syntax error, unexpected keyword_ensure, expecting end-of-input
+          ensure
+                ^):
+  
+app/views/users/show.html.erb:5: syntax error, unexpected tIDENTIFIER, expecting keyword_do or '{' or '('
+app/views/users/show.html.erb:10: syntax error, unexpected keyword_do_block, expecting keyword_end
+app/views/users/show.html.erb:24: syntax error, unexpected keyword_ensure, expecting end-of-input
+Started GET "/users" for 127.0.0.1 at 2017-07-10 15:03:56 -0400
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 3]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 4]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 5]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 8]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 9]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered users/index.html.erb within layouts/application (48.8ms)
+  Rendered users/_menu.html.erb (1.4ms)
+Completed 200 OK in 91ms (Views: 85.6ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-07-10 15:04:13 -0400
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 3]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 4]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 5]]
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 8]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 9]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered users/index.html.erb within layouts/application (13.2ms)
+  Rendered users/_menu.html.erb (1.3ms)
+Completed 200 OK in 45ms (Views: 38.9ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/users/10" for 127.0.0.1 at 2017-07-10 15:04:14 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (4.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mAddress Load (4.8ms)[0m  [1m[34mSELECT  "addresses".* FROM "addresses" WHERE "addresses"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 1]]
+  [1m[36mPost Load (1.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 11]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (2.8ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered users/show.html.erb within layouts/application (5.6ms)
+  Rendered users/_menu.html.erb (1.2ms)
+Completed 200 OK in 77ms (Views: 42.7ms | ActiveRecord: 13.7ms)
+
+
+Started GET "/users/10/addresses/2/edit" for 127.0.0.1 at 2017-07-10 15:04:15 -0400
+Processing by AddressesController#edit as HTML
+  Parameters: {"user_id"=>"10", "id"=>"2"}
+  [1m[36mAddress Load (1.2ms)[0m  [1m[34mSELECT  "addresses".* FROM "addresses" WHERE "addresses"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering addresses/edit.html.erb within layouts/application
+  Rendered addresses/_form.html.erb (25.1ms)
+  Rendered addresses/edit.html.erb within layouts/application (270.7ms)
+Completed 500 Internal Server Error in 330ms (ActiveRecord: 2.9ms)
+
+
+  
+ActionView::Template::Error (undefined method `address_path' for #<#<Class:0x007f9e41463750>:0x007f9e41461a68>
+Did you mean?  asset_path):
+    2: 
+    3: <%= render 'form', address: @address %>
+    4: 
+    5: <%= link_to 'Show', @address %> |
+  
+app/views/addresses/edit.html.erb:5:in `_app_views_addresses_edit_html_erb___856225917316029269_70158838349860'
+Started GET "/users/10/addresses/2/edit" for 127.0.0.1 at 2017-07-10 15:04:27 -0400
+Processing by AddressesController#edit as HTML
+  Parameters: {"user_id"=>"10", "id"=>"2"}
+  [1m[36mAddress Load (0.4ms)[0m  [1m[34mSELECT  "addresses".* FROM "addresses" WHERE "addresses"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering addresses/edit.html.erb within layouts/application
+  Rendered addresses/_form.html.erb (3.3ms)
+  Rendered addresses/edit.html.erb within layouts/application (6.5ms)
+  Rendered users/_menu.html.erb (1.2ms)
+Completed 200 OK in 46ms (Views: 39.9ms | ActiveRecord: 1.0ms)
+
+
+Started PATCH "/users/10/addresses/2" for 127.0.0.1 at 2017-07-10 15:05:02 -0400
+Processing by AddressesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"URnPAeDf8Xi1QbnBXT0M2YkuuLHvU6vyWHyC7NVQZ8MvQWwdP9AtiNzgcdqif257q0N10t2BAR51iqdNOzCnrg==", "address"=>{"street"=>"57 Davis Avenue", "city"=>"White Plains", "state"=>"NY", "zip"=>"10605", "user_id"=>"10"}, "commit"=>"Add Address", "user_id"=>"10", "id"=>"2"}
+  [1m[36mAddress Load (0.4ms)[0m  [1m[34mSELECT  "addresses".* FROM "addresses" WHERE "addresses"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[33mUPDATE "addresses" SET "street" = $1, "city" = $2, "state" = $3, "zip" = $4, "updated_at" = $5 WHERE "addresses"."id" = $6[0m  [["street", "57 Davis Avenue"], ["city", "White Plains"], ["state", "NY"], ["zip", 10605], ["updated_at", "2017-07-10 19:05:02.049149"], ["id", 2]]
+  [1m[35m (156.9ms)[0m  [1m[35mCOMMIT[0m
+Redirected to 
+Completed 500 Internal Server Error in 372ms (ActiveRecord: 159.3ms)
+
+
+  
+NoMethodError (undefined method `address_url' for #<AddressesController:0x007f9e410daea8>):
+  
+app/controllers/addresses_controller.rb:57:in `block (2 levels) in update'
+app/controllers/addresses_controller.rb:55:in `update'
+Started PATCH "/users/10/addresses/2" for 127.0.0.1 at 2017-07-10 15:05:51 -0400
+Processing by AddressesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"URnPAeDf8Xi1QbnBXT0M2YkuuLHvU6vyWHyC7NVQZ8MvQWwdP9AtiNzgcdqif257q0N10t2BAR51iqdNOzCnrg==", "address"=>{"street"=>"57 Davis Avenue", "city"=>"White Plains", "state"=>"NY", "zip"=>"10605", "user_id"=>"10"}, "commit"=>"Add Address", "user_id"=>"10", "id"=>"2"}
+  [1m[36mAddress Load (0.4ms)[0m  [1m[34mSELECT  "addresses".* FROM "addresses" WHERE "addresses"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/10
+Completed 302 Found in 76ms (ActiveRecord: 15.3ms)
+
+
+Started GET "/users/10" for 127.0.0.1 at 2017-07-10 15:05:51 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mAddress Load (0.5ms)[0m  [1m[34mSELECT  "addresses".* FROM "addresses" WHERE "addresses"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 1]]
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 10], ["LIMIT", 11]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 10]]
+  Rendered users/show.html.erb within layouts/application (3.5ms)
+  Rendered users/_menu.html.erb (3.5ms)
+Completed 200 OK in 122ms (Views: 32.8ms | ActiveRecord: 8.1ms)
+
+

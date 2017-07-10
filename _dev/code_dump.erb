@@ -45,3 +45,15 @@ MENU ITEMS
         if session[user] !> 0
             session[user] = nil
         end
+
+
+
+
+validation
+
+validates :username, :uniqueness => true, :presence => true
+validates :password, presence: => true
+validates :email, confirmation: => true
+
+User.create(name: "Michael Nobre").valid? # => true
+User.create(name: nil).valid? # => false

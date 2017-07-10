@@ -12,15 +12,17 @@
   <% end %>
 
   <div class="actions">
-    <!-- fname, lname, email, username, password -->
+    <!-- fname, lname, email, email_confirmation, username, password, password_confirmation -->
     <%= label :fname, "First Name", class: "data-label" %>: <%= form.text_field :fname, id: "fname", class: "data-value" %><br />
     <%= label :lname, "Last Name", class: "data-label" %>: <%= form.text_field :lname, id: "lname", class: "data-value" %><br />
     <%= label :email, "Email", class: "data-label" %>: <%= form.text_field :email, id: "email", class: "data-value" %><br />
+    <%= label :email_confirmation, "Email Confirmation", class: "data-label" %>: <%= form.text_field :email_confirmation, id: "email", class: "data-value" %><br />
     <%= label :username, "Username", class: "data-label" %>: <%= form.text_field :username, id: "username", class: "data-value" %><br />
     <%= label :password, "Password", class: "data-label" %>: <%= form.password_field :password, id: "password", class: "data-value" %><br />
+    <%= label :password_confirmation, "Password Confirmation", class: "data-label" %>: <%= form.password_field :password_confirmation, id: "password", class: "data-value" %><br />
     <%= form.submit "Register", class: "submit_btn" %>
 
     <p>Already a user? <%= link_to 'login_form', login_form_path %></p>
   </div>
-  
+
 <% end %>

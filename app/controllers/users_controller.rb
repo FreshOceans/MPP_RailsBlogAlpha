@@ -106,7 +106,6 @@ class UsersController < ApplicationController
   def create
     puts "\n******** create_user ********"
     @user = User.new(user_params)
-
     respond_to do |format|
       if @user.save
         format.html { redirect_to '/feed', notice: 'You have successfully created an account.' }
@@ -136,13 +135,13 @@ class UsersController < ApplicationController
 
   # DELETE /users/1
   # DELETE /users/1.json
-  def destroy
-    puts "\n******** destroy_user ********"
-    @user.destroy
-    current_user = nil
-    flash[:notice] = 'User was successfully deleted.'
-    redirect_to '/'
-  end
+  # def destroy
+  #   puts "\n******** destroy_user ********"
+  #   @user.destroy
+  #   current_user = nil
+  #   flash[:notice] = 'User was successfully deleted.'
+  #   redirect_to '/'
+  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.

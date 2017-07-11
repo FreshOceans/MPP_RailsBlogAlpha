@@ -52,12 +52,14 @@ class AddressesController < ApplicationController
   # PATCH/PUT /addresses/1.json
   def update
     puts "\n******** update_address ********"
+    @user = User.find(params[:user_id])
     respond_to do |format|
       if @address.update(address_params)
         format.html { redirect_to user_path(params[:user_id]), notice: 'Address was successfully updated.' }
         format.json { render :show, status: :ok, location: @address }
       else
         format.html { render :edit }
+        # think about redirect_to instead of render, less efficient
         format.json { render json: @address.errors, status: :unprocessable_entity }
       end
     end

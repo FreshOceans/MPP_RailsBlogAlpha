@@ -30054,3 +30054,286 @@ Processing by AddressesController#edit as HTML
 Completed 200 OK in 62ms (Views: 48.6ms | ActiveRecord: 2.0ms)
 
 
+Started GET "/users/18" for 127.0.0.1 at 2017-07-11 17:41:34 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"18"}
+  [1m[36mUser Load (3.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mAddress Load (0.6ms)[0m  [1m[34mSELECT  "addresses".* FROM "addresses" WHERE "addresses"."user_id" = $1 LIMIT $2[0m  [["user_id", 18], ["LIMIT", 1]]
+  [1m[36mPost Load (2.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 18], ["LIMIT", 11]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 18]]
+  Rendered users/show.html.erb within layouts/application (3.5ms)
+  Rendered users/_menu.html.erb (1.3ms)
+Completed 200 OK in 69ms (Views: 43.8ms | ActiveRecord: 9.9ms)
+
+
+Started GET "/users/18/addresses/4/edit" for 127.0.0.1 at 2017-07-11 17:41:37 -0400
+Processing by AddressesController#edit as HTML
+  Parameters: {"user_id"=>"18", "id"=>"4"}
+  [1m[36mUser Load (13.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mAddress Load (2.7ms)[0m  [1m[34mSELECT  "addresses".* FROM "addresses" WHERE "addresses"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering addresses/edit.html.erb within layouts/application
+  Rendered addresses/_form.html.erb (3.0ms)
+  Rendered addresses/edit.html.erb within layouts/application (6.2ms)
+  Rendered users/_menu.html.erb (1.2ms)
+Completed 200 OK in 70ms (Views: 40.8ms | ActiveRecord: 16.3ms)
+
+
+Started PATCH "/users/18/addresses/4" for 127.0.0.1 at 2017-07-11 17:41:41 -0400
+Processing by AddressesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"jX3bXwANqBm6VH7oM9x6Tm0K2UbqenM4ZGS+2jKEOwBaA+zVYneh+G0yuAzmze4xpIo2hxrory3lOzzcnyZeLw==", "address"=>{"street"=>"", "city"=>"washington", "state"=>"dc", "zip"=>"22001", "user_id"=>"18"}, "commit"=>"Add Address", "user_id"=>"18", "id"=>"4"}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mAddress Load (9.0ms)[0m  [1m[34mSELECT  "addresses".* FROM "addresses" WHERE "addresses"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (1.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  Rendering addresses/edit.html.erb within layouts/application
+  Rendered addresses/_form.html.erb (196.4ms)
+  Rendered addresses/edit.html.erb within layouts/application (216.5ms)
+Completed 500 Internal Server Error in 249ms (ActiveRecord: 12.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `address_path' for #<#<Class:0x007f9850fea2f0>:0x007f985210a738>
+Did you mean?  asset_path):
+    2: 
+    3: <%= puts "*** @user: #{@user.inspect} ***" %>
+    4: 
+    5: <%= form_for([@user, @address]) do |form| %>
+    6: 
+    7:     <div class="actions">
+    8:         <!-- street, city, state, zip -->
+  
+app/views/addresses/_form.html.erb:5:in `_app_views_addresses__form_html_erb___116857632793419559_70146087648000'
+app/views/addresses/edit.html.erb:3:in `_app_views_addresses_edit_html_erb___3307534667069854677_70146094286760'
+app/controllers/addresses_controller.rb:60:in `block (2 levels) in update'
+app/controllers/addresses_controller.rb:55:in `update'
+Started PATCH "/users/18/addresses/4" for 127.0.0.1 at 2017-07-11 17:50:27 -0400
+Processing by AddressesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"jd3Sx1rCLeXuHBixbPXG/006N9nTFZglQbGc9jCWeKjSKI8ZSjn0IwiypwD/THbX4k0Pow/+O56NOzghGHuLwA==", "address"=>{"street"=>"", "city"=>"washington", "state"=>"dc", "zip"=>"22001", "user_id"=>"18"}, "commit"=>"Add Address", "user_id"=>"18", "id"=>"4"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mAddress Load (0.5ms)[0m  [1m[34mSELECT  "addresses".* FROM "addresses" WHERE "addresses"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  Rendering addresses/edit.html.erb within layouts/application
+  Rendered addresses/_form.html.erb (212.4ms)
+  Rendered addresses/edit.html.erb within layouts/application (223.0ms)
+Completed 500 Internal Server Error in 312ms (ActiveRecord: 17.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `address_path' for #<#<Class:0x007f9850bba3d8>:0x007f9850bb8420>
+Did you mean?  asset_path):
+    2: 
+    3: <%= puts "*** @user: #{@user.inspect} ***" %>
+    4: 
+    5: <%= form_for([@user, @address]) do |form| %>
+    6: 
+    7:     <div class="actions">
+    8:         <!-- street, city, state, zip -->
+  
+app/views/addresses/_form.html.erb:5:in `_app_views_addresses__form_html_erb___116857632793419559_70146083025360'
+app/views/addresses/edit.html.erb:3:in `_app_views_addresses_edit_html_erb___3307534667069854677_70146083083800'
+app/controllers/addresses_controller.rb:60:in `block (2 levels) in update'
+app/controllers/addresses_controller.rb:55:in `update'
+Started GET "/users/18/addresses/4/edit" for 127.0.0.1 at 2017-07-11 17:56:32 -0400
+Processing by AddressesController#edit as HTML
+  Parameters: {"user_id"=>"18", "id"=>"4"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mAddress Load (0.2ms)[0m  [1m[34mSELECT  "addresses".* FROM "addresses" WHERE "addresses"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering addresses/edit.html.erb within layouts/application
+  Rendered addresses/_form.html.erb (3.5ms)
+  Rendered addresses/edit.html.erb within layouts/application (6.2ms)
+  Rendered users/_menu.html.erb (1.3ms)
+Completed 200 OK in 100ms (Views: 36.8ms | ActiveRecord: 13.8ms)
+
+
+Started PATCH "/users/18/addresses/4" for 127.0.0.1 at 2017-07-11 17:56:35 -0400
+Processing by AddressesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"DkVkGtRC87/JFUEsOKPDNfSpgvwi424uqE4jmpq51M5RsDnExLkqeS+7/p2rGnMdW966hv4IzZVkxIdNslQnpg==", "address"=>{"street"=>"", "city"=>"washington", "state"=>"dc", "zip"=>"22001", "user_id"=>"18"}, "commit"=>"Add Address", "user_id"=>"18", "id"=>"4"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mAddress Load (0.2ms)[0m  [1m[34mSELECT  "addresses".* FROM "addresses" WHERE "addresses"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  Rendering addresses/edit.html.erb within layouts/application
+  Rendered addresses/_form.html.erb (293.9ms)
+  Rendered addresses/edit.html.erb within layouts/application (297.2ms)
+Completed 500 Internal Server Error in 331ms (ActiveRecord: 2.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `address_path' for #<#<Class:0x007f984f5b62d0>:0x007f9850b08890>
+Did you mean?  asset_path):
+    2: 
+    3: <%= puts "*** @user: #{@user.inspect} ***" %>
+    4: 
+    5: <%= form_for([@user, @address]) do |form| %>
+    6: 
+    7:     <div class="actions">
+    8:         <!-- street, city, state, zip -->
+  
+app/views/addresses/_form.html.erb:5:in `_app_views_addresses__form_html_erb___116857632793419559_70146082610520'
+app/views/addresses/edit.html.erb:3:in `_app_views_addresses_edit_html_erb___3307534667069854677_70146082740660'
+app/controllers/addresses_controller.rb:60:in `block (2 levels) in update'
+app/controllers/addresses_controller.rb:55:in `update'
+Started GET "/users/18/addresses/4/edit" for 127.0.0.1 at 2017-07-11 18:02:54 -0400
+Processing by AddressesController#edit as HTML
+  Parameters: {"user_id"=>"18", "id"=>"4"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mAddress Load (0.2ms)[0m  [1m[34mSELECT  "addresses".* FROM "addresses" WHERE "addresses"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering addresses/edit.html.erb within layouts/application
+  Rendered addresses/_form.html.erb (4.0ms)
+  Rendered addresses/edit.html.erb within layouts/application (6.9ms)
+  Rendered users/_menu.html.erb (1.3ms)
+Completed 200 OK in 101ms (Views: 36.0ms | ActiveRecord: 14.1ms)
+
+
+Started PATCH "/users/18/addresses/4" for 127.0.0.1 at 2017-07-11 18:03:00 -0400
+Processing by AddressesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/XJ/SJw+TwqdAWynUvo/6wevOo/QxJYXz0QB24CiA1mihyKWjMWWzHuv0xbBQ4/DqNgC9QwvNawDzqUMqE/wMQ==", "address"=>{"street"=>"big boi drive", "city"=>"washington", "state"=>"dc", "zip"=>"22001", "user_id"=>"18"}, "commit"=>"Add Address", "user_id"=>"18", "id"=>"4"}
+  [1m[36mUser Load (12.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mAddress Load (9.8ms)[0m  [1m[34mSELECT  "addresses".* FROM "addresses" WHERE "addresses"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (32.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE "addresses" SET "street" = $1, "updated_at" = $2 WHERE "addresses"."id" = $3[0m  [["street", "big boi drive"], ["updated_at", "2017-07-11 22:03:01.040421"], ["id", 4]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/18
+Completed 302 Found in 175ms (ActiveRecord: 57.3ms)
+
+
+Started GET "/users/18" for 127.0.0.1 at 2017-07-11 18:03:01 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"18"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mAddress Load (0.3ms)[0m  [1m[34mSELECT  "addresses".* FROM "addresses" WHERE "addresses"."user_id" = $1 LIMIT $2[0m  [["user_id", 18], ["LIMIT", 1]]
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 18], ["LIMIT", 11]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 18]]
+  Rendered users/show.html.erb within layouts/application (4.7ms)
+  Rendered users/_menu.html.erb (1.3ms)
+Completed 200 OK in 118ms (Views: 66.3ms | ActiveRecord: 9.2ms)
+
+
+Started GET "/users/18" for 127.0.0.1 at 2017-07-11 18:03:06 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"18"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mAddress Load (0.2ms)[0m  [1m[34mSELECT  "addresses".* FROM "addresses" WHERE "addresses"."user_id" = $1 LIMIT $2[0m  [["user_id", 18], ["LIMIT", 1]]
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 18], ["LIMIT", 11]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 18]]
+  Rendered users/show.html.erb within layouts/application (2.9ms)
+  Rendered users/_menu.html.erb (1.3ms)
+Completed 200 OK in 44ms (Views: 31.1ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/users/18/addresses/4/edit" for 127.0.0.1 at 2017-07-11 18:03:07 -0400
+Processing by AddressesController#edit as HTML
+  Parameters: {"user_id"=>"18", "id"=>"4"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mAddress Load (12.4ms)[0m  [1m[34mSELECT  "addresses".* FROM "addresses" WHERE "addresses"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering addresses/edit.html.erb within layouts/application
+  Rendered addresses/_form.html.erb (6.2ms)
+  Rendered addresses/edit.html.erb within layouts/application (9.1ms)
+  Rendered users/_menu.html.erb (1.3ms)
+Completed 200 OK in 67ms (Views: 38.0ms | ActiveRecord: 15.3ms)
+
+
+Started PATCH "/users/18/addresses/4" for 127.0.0.1 at 2017-07-11 18:03:10 -0400
+Processing by AddressesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"M6Eis0sa9VgEKM8GeihHSvecSp+Y8U+3ML/kdrKewQTk3xU5KWD8udNOCeKvOdM1PhylXmhjk6Kx4GZwHzykKw==", "address"=>{"street"=>"", "city"=>"washington", "state"=>"dc", "zip"=>"22001", "user_id"=>"18"}, "commit"=>"Add Address", "user_id"=>"18", "id"=>"4"}
+  [1m[36mUser Load (5.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mAddress Load (2.5ms)[0m  [1m[34mSELECT  "addresses".* FROM "addresses" WHERE "addresses"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (4.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (10.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[35m (2.6ms)[0m  [1m[31mROLLBACK[0m
+  Rendering addresses/edit.html.erb within layouts/application
+  Rendered addresses/_form.html.erb (175.0ms)
+  Rendered addresses/edit.html.erb within layouts/application (178.0ms)
+Completed 500 Internal Server Error in 219ms (ActiveRecord: 25.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `address_path' for #<#<Class:0x007f984f418e50>:0x007f98512e2700>
+Did you mean?  asset_path):
+    2: 
+    3: <%= puts "*** @user: #{@user.inspect} ***" %>
+    4: 
+    5: <%= form_for([@user, @address]) do |form| %>
+    6: 
+    7:     <div class="actions">
+    8:         <!-- street, city, state, zip -->
+  
+app/views/addresses/_form.html.erb:5:in `_app_views_addresses__form_html_erb___116857632793419559_70146086831280'
+app/views/addresses/edit.html.erb:3:in `_app_views_addresses_edit_html_erb___3307534667069854677_70146086864980'
+app/controllers/addresses_controller.rb:60:in `block (2 levels) in update'
+app/controllers/addresses_controller.rb:55:in `update'
+Started PATCH "/users/18/addresses/4" for 127.0.0.1 at 2017-07-11 18:05:06 -0400
+Processing by AddressesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"92jzw+PCBWND8RwnmyoMx/nsJWmwZZ9pq7SHU3sHIFWona4d8zncpaVfo5YIk7zvVpsdE2yOPNJnPiOEU+rTPQ==", "address"=>{"street"=>"", "city"=>"washington", "state"=>"dc", "zip"=>"22001", "user_id"=>"18"}, "commit"=>"Add Address", "user_id"=>"18", "id"=>"4"}
+  [1m[36mUser Load (6.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mAddress Load (1.4ms)[0m  [1m[34mSELECT  "addresses".* FROM "addresses" WHERE "addresses"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  Rendering addresses/edit.html.erb within layouts/application
+  Rendered addresses/_form.html.erb (319.7ms)
+  Rendered addresses/edit.html.erb within layouts/application (325.6ms)
+Completed 500 Internal Server Error in 352ms (ActiveRecord: 8.6ms)
+
+
+  
+ActionView::Template::Error (undefined method `address_path' for #<#<Class:0x007f984f418e50>:0x007f98521a1278>
+Did you mean?  asset_path):
+    2: 
+    3: <%= puts "*** @user: #{@user.inspect} ***" %>
+    4: 
+    5: <%= form_for([@user, @address]) do |form| %>
+    6: 
+    7:     <div class="actions">
+    8:         <!-- street, city, state, zip -->
+  
+app/views/addresses/_form.html.erb:5:in `_app_views_addresses__form_html_erb___116857632793419559_70146087908840'
+app/views/addresses/edit.html.erb:3:in `_app_views_addresses_edit_html_erb___3307534667069854677_70146087952180'
+app/controllers/addresses_controller.rb:60:in `block (2 levels) in update'
+app/controllers/addresses_controller.rb:55:in `update'
+Started GET "/users/18/addresses/4/edit" for 127.0.0.1 at 2017-07-11 18:08:36 -0400
+Processing by AddressesController#edit as HTML
+  Parameters: {"user_id"=>"18", "id"=>"4"}
+  [1m[36mUser Load (3.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mAddress Load (0.3ms)[0m  [1m[34mSELECT  "addresses".* FROM "addresses" WHERE "addresses"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering addresses/edit.html.erb within layouts/application
+  Rendered addresses/_form.html.erb (19.6ms)
+  Rendered addresses/edit.html.erb within layouts/application (22.8ms)
+  Rendered users/_menu.html.erb (1.4ms)
+Completed 200 OK in 154ms (Views: 72.1ms | ActiveRecord: 19.3ms)
+
+
+Started PATCH "/users/18/addresses/4" for 127.0.0.1 at 2017-07-11 18:08:40 -0400
+Processing by AddressesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"NF9iz0roxIjEDWSvG+HM/MgAyo/TLct3QgtK2ba8/rBrqj8RWhMdTiKj2x6IWHzUZ3fy9Q/GaMyOge4OnlEN2A==", "address"=>{"street"=>"", "city"=>"washington", "state"=>"dc", "zip"=>"22001", "user_id"=>"18"}, "commit"=>"Add Address", "user_id"=>"18", "id"=>"4"}
+  [1m[36mUser Load (14.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mAddress Load (27.2ms)[0m  [1m[34mSELECT  "addresses".* FROM "addresses" WHERE "addresses"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  Rendering addresses/edit.html.erb within layouts/application
+  Rendered addresses/_form.html.erb (4.2ms)
+  Rendered addresses/edit.html.erb within layouts/application (47.1ms)
+  Rendered users/_menu.html.erb (3.2ms)
+Completed 200 OK in 152ms (Views: 82.1ms | ActiveRecord: 42.8ms)
+
+

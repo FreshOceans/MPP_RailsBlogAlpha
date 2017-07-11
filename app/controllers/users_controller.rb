@@ -6,6 +6,8 @@ class UsersController < ApplicationController
   def home
     puts "\n******** home ********"
     @users = User.all
+    # puts "\n******** session ********"
+    # puts "*** sessions.inspect: #{sessions.inspect} ***"
   end
 
   # == GET /feed
@@ -16,39 +18,39 @@ class UsersController < ApplicationController
   end
 
   # == GET /login_form
-  def login_form
-      puts "\n******** login_form ********"
-      render :login_form
-  end
+  # def login_form
+  #     puts "\n******** login_form ********"
+  #     render :login_form
+  # end
 
   # == POST /login
-  def login
-      puts "\n******** login ********"
-      @user = User.where(username: params[:username]).first
-        if @user
-            if @user.password == params[:password]
-                session[:user_id] = @user.id
-                puts "** session[:user_id], #{session[:user_id]} **"
-                @current_user = get_current_user
-                flash[:notice] = "You've been logged in successfully."
-                redirect_to '/feed'
-            else
-                flash[:notice]= "Please check your username and password and try again."
-                redirect_to "/login_form"
-            end
-        else
-            flash[:notice] = "Please check your username and password and try again."
-            redirect_to "/login_form"
-        end
-  end
+  # def login
+  #     puts "\n******** login ********"
+  #     @user = User.where(username: params[:username]).first
+  #       if @user
+  #           if @user.password == params[:password]
+  #               session[:user_id] = @user.id
+  #               puts "** session[:user_id], #{session[:user_id]} **"
+  #               @current_user = get_current_user
+  #               flash[:notice] = "You've been logged in successfully."
+  #               redirect_to '/feed'
+  #           else
+  #               flash[:notice]= "Please check your username and password and try again."
+  #               redirect_to "/login_form"
+  #           end
+  #       else
+  #           flash[:notice] = "Please check your username and password and try again."
+  #           redirect_to "/login_form"
+  #       end
+  # end
 
   # == GET /logout
-  def logout
-    puts "\n******* logout *******"
-    session[:user_id] = nil
-  	flash[:notice] = "You've been logged out successfully."
-  	redirect_to '/'
-  end
+  # def logout
+  #   puts "\n******* logout *******"
+  #   session[:user_id] = nil
+  # 	flash[:notice] = "You've been logged out successfully."
+  # 	redirect_to '/'
+  # end
 
   # == get_current_user
   def get_current_user

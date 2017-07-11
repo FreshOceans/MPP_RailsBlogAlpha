@@ -29175,3 +29175,882 @@ Processing by UsersController#show as HTML
 Completed 200 OK in 78ms (Views: 33.6ms | ActiveRecord: 20.2ms)
 
 
+Started GET "/feed" for 127.0.0.1 at 2017-07-11 16:19:32 -0400
+Processing by UsersController#feed as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering users/feed.html.erb within layouts/application
+  Rendered users/feed.html.erb within layouts/application (0.8ms)
+  Rendered users/_menu.html.erb (1.2ms)
+Completed 200 OK in 75ms (Views: 29.9ms | ActiveRecord: 9.2ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-07-11 16:19:34 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (3.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 3]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 4]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 5]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 8]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 9]]
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 11]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 12]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 13]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 14]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 15]]
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 16]]
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 17]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 18]]
+  Rendered users/index.html.erb within layouts/application (73.7ms)
+  Rendered users/_menu.html.erb (1.3ms)
+Completed 200 OK in 141ms (Views: 90.9ms | ActiveRecord: 22.6ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2017-07-11 16:19:36 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (9.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mUser Load (6.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mAddress Load (1.8ms)[0m  [1m[34mSELECT  "addresses".* FROM "addresses" WHERE "addresses"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 1]]
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 3], ["LIMIT", 11]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered users/show.html.erb within layouts/application (3.6ms)
+  Rendered users/_menu.html.erb (1.1ms)
+Completed 200 OK in 88ms (Views: 33.1ms | ActiveRecord: 26.8ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-07-11 16:19:38 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 3]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 4]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 5]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 8]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 9]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 11]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 12]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 13]]
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 14]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 15]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 16]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 17]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 18]]
+  Rendered users/index.html.erb within layouts/application (22.5ms)
+  Rendered users/_menu.html.erb (1.1ms)
+Completed 200 OK in 78ms (Views: 65.7ms | ActiveRecord: 5.7ms)
+
+
+Started GET "/users/18" for 127.0.0.1 at 2017-07-11 16:19:40 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"18"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mAddress Load (0.3ms)[0m  [1m[34mSELECT  "addresses".* FROM "addresses" WHERE "addresses"."user_id" = $1 LIMIT $2[0m  [["user_id", 18], ["LIMIT", 1]]
+  [1m[36mPost Load (0.8ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 18], ["LIMIT", 11]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 18]]
+  Rendered users/show.html.erb within layouts/application (4.3ms)
+  Rendered users/_menu.html.erb (1.3ms)
+Completed 200 OK in 92ms (Views: 42.4ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/users/18/posts/new" for 127.0.0.1 at 2017-07-11 16:19:41 -0400
+Processing by PostsController#new as HTML
+  Parameters: {"user_id"=>"18"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (5.1ms)
+  Rendered posts/new.html.erb within layouts/application (8.4ms)
+  Rendered users/_menu.html.erb (1.3ms)
+Completed 200 OK in 62ms (Views: 40.5ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-07-11 16:19:42 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (5.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 3]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 4]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 5]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 8]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 9]]
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 11]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 12]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 13]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 14]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 15]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 16]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 17]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 18]]
+  Rendered users/index.html.erb within layouts/application (30.7ms)
+  Rendered users/_menu.html.erb (1.4ms)
+Completed 200 OK in 106ms (Views: 67.4ms | ActiveRecord: 10.2ms)
+
+
+Started GET "/feed" for 127.0.0.1 at 2017-07-11 16:19:43 -0400
+Processing by UsersController#feed as HTML
+  [1m[36mUser Load (2.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering users/feed.html.erb within layouts/application
+  Rendered users/feed.html.erb within layouts/application (0.6ms)
+  Rendered users/_menu.html.erb (1.2ms)
+Completed 200 OK in 64ms (Views: 35.0ms | ActiveRecord: 4.1ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-07-11 16:19:44 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 3]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 4]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 5]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 8]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 9]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 11]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 12]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 13]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 14]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 15]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 16]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 17]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 18]]
+  Rendered users/index.html.erb within layouts/application (27.1ms)
+  Rendered users/_menu.html.erb (1.2ms)
+Completed 200 OK in 90ms (Views: 68.3ms | ActiveRecord: 5.1ms)
+
+
+Started GET "/users/17" for 127.0.0.1 at 2017-07-11 16:19:45 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  [1m[36mAddress Load (0.6ms)[0m  [1m[34mSELECT  "addresses".* FROM "addresses" WHERE "addresses"."user_id" = $1 LIMIT $2[0m  [["user_id", 17], ["LIMIT", 1]]
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 17], ["LIMIT", 11]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 17]]
+  Rendered users/show.html.erb within layouts/application (3.0ms)
+  Rendered users/_menu.html.erb (1.3ms)
+Completed 200 OK in 74ms (Views: 34.6ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-07-11 16:19:47 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 3]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 4]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 5]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 8]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 9]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 11]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 12]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 13]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 14]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 15]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 16]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 17]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 18]]
+  Rendered users/index.html.erb within layouts/application (23.0ms)
+  Rendered users/_menu.html.erb (1.3ms)
+Completed 200 OK in 80ms (Views: 66.8ms | ActiveRecord: 5.9ms)
+
+
+Started GET "/users/18" for 127.0.0.1 at 2017-07-11 16:19:50 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"18"}
+  [1m[36mUser Load (3.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mUser Load (3.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mUser Load (4.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mAddress Load (0.6ms)[0m  [1m[34mSELECT  "addresses".* FROM "addresses" WHERE "addresses"."user_id" = $1 LIMIT $2[0m  [["user_id", 18], ["LIMIT", 1]]
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 18], ["LIMIT", 11]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (1.8ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 18]]
+  Rendered users/show.html.erb within layouts/application (5.7ms)
+  Rendered users/_menu.html.erb (1.6ms)
+Completed 200 OK in 76ms (Views: 37.9ms | ActiveRecord: 14.2ms)
+
+
+Started GET "/users/18/addresses/new" for 127.0.0.1 at 2017-07-11 16:19:51 -0400
+Processing by AddressesController#new as HTML
+  Parameters: {"user_id"=>"18"}
+  [1m[36mUser Load (6.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering addresses/new.html.erb within layouts/application
+  Rendered addresses/_form.html.erb (4.0ms)
+  Rendered addresses/new.html.erb within layouts/application (7.3ms)
+  Rendered users/_menu.html.erb (1.4ms)
+Completed 200 OK in 85ms (Views: 36.3ms | ActiveRecord: 14.8ms)
+
+
+Started GET "/users/18/addresses" for 127.0.0.1 at 2017-07-11 16:20:01 -0400
+Processing by AddressesController#index as HTML
+  Parameters: {"user_id"=>"18"}
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering addresses/index.html.erb within layouts/application
+  [1m[36mAddress Load (1.3ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses"[0m
+  Rendered addresses/index.html.erb within layouts/application (235.6ms)
+Completed 500 Internal Server Error in 289ms (ActiveRecord: 3.4ms)
+
+
+  
+ActionView::Template::Error (undefined method `address_path' for #<#<Class:0x007f984f1f0f10>:0x007f984d541f68>
+Did you mean?  asset_path):
+    12:   <tbody>
+    13:     <% @addresses.each do |address| %>
+    14:       <tr>
+    15:         <td><%= link_to 'Show', address %></td>
+    16:         <td><%= link_to 'Edit', edit_address_path(address) %></td>
+    17:         <td><%= link_to 'Destroy', address, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    18:       </tr>
+  
+app/views/addresses/index.html.erb:15:in `block in _app_views_addresses_index_html_erb__3540611147265628019_70146054572200'
+app/views/addresses/index.html.erb:13:in `_app_views_addresses_index_html_erb__3540611147265628019_70146054572200'
+Started GET "/users/18/addresses/new" for 127.0.0.1 at 2017-07-11 16:20:07 -0400
+Processing by AddressesController#new as HTML
+  Parameters: {"user_id"=>"18"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering addresses/new.html.erb within layouts/application
+  Rendered addresses/_form.html.erb (2.5ms)
+  Rendered addresses/new.html.erb within layouts/application (5.4ms)
+  Rendered users/_menu.html.erb (1.1ms)
+Completed 200 OK in 37ms (Views: 30.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/18/addresses/new" for 127.0.0.1 at 2017-07-11 16:20:28 -0400
+Processing by AddressesController#new as HTML
+  Parameters: {"user_id"=>"18"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering addresses/new.html.erb within layouts/application
+  Rendered addresses/_form.html.erb (2.7ms)
+  Rendered addresses/new.html.erb within layouts/application (5.8ms)
+  Rendered users/_menu.html.erb (1.0ms)
+Completed 200 OK in 39ms (Views: 30.6ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/users/18" for 127.0.0.1 at 2017-07-11 16:20:31 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"18"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mAddress Load (0.2ms)[0m  [1m[34mSELECT  "addresses".* FROM "addresses" WHERE "addresses"."user_id" = $1 LIMIT $2[0m  [["user_id", 18], ["LIMIT", 1]]
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 18], ["LIMIT", 11]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 18]]
+  Rendered users/show.html.erb within layouts/application (3.3ms)
+  Rendered users/_menu.html.erb (1.0ms)
+Completed 200 OK in 70ms (Views: 30.8ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/feed" for 127.0.0.1 at 2017-07-11 16:20:34 -0400
+Processing by UsersController#feed as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering users/feed.html.erb within layouts/application
+  Rendered users/feed.html.erb within layouts/application (1.3ms)
+  Rendered users/_menu.html.erb (1.2ms)
+Completed 200 OK in 51ms (Views: 39.5ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-07-11 16:20:36 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 3]]
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 4]]
+  [1m[36mPost Load (1.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 5]]
+  [1m[36mPost Load (0.9ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 8]]
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 9]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 11]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 12]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 13]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 14]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 15]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 16]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 17]]
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 18]]
+  Rendered users/index.html.erb within layouts/application (27.7ms)
+  Rendered users/_menu.html.erb (1.1ms)
+Completed 200 OK in 70ms (Views: 55.3ms | ActiveRecord: 8.1ms)
+
+
+Started GET "/users/18" for 127.0.0.1 at 2017-07-11 16:20:38 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"18"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mAddress Load (0.5ms)[0m  [1m[34mSELECT  "addresses".* FROM "addresses" WHERE "addresses"."user_id" = $1 LIMIT $2[0m  [["user_id", 18], ["LIMIT", 1]]
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 18], ["LIMIT", 11]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 18]]
+  Rendered users/show.html.erb within layouts/application (3.1ms)
+  Rendered users/_menu.html.erb (1.7ms)
+Completed 200 OK in 89ms (Views: 39.7ms | ActiveRecord: 4.3ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-07-11 16:20:39 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (4.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 3]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 4]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 5]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 8]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 9]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 11]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 12]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 13]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 14]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 15]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 16]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 17]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 18]]
+  Rendered users/index.html.erb within layouts/application (25.4ms)
+  Rendered users/_menu.html.erb (1.4ms)
+Completed 200 OK in 98ms (Views: 69.0ms | ActiveRecord: 9.5ms)
+
+
+Started GET "/feed" for 127.0.0.1 at 2017-07-11 16:20:40 -0400
+Processing by UsersController#feed as HTML
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mUser Load (4.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering users/feed.html.erb within layouts/application
+  Rendered users/feed.html.erb within layouts/application (0.8ms)
+  Rendered users/_menu.html.erb (1.4ms)
+Completed 200 OK in 65ms (Views: 43.9ms | ActiveRecord: 5.9ms)
+
+
+Started GET "/users/18" for 127.0.0.1 at 2017-07-11 16:20:41 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"18"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mUser Load (6.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mAddress Load (0.3ms)[0m  [1m[34mSELECT  "addresses".* FROM "addresses" WHERE "addresses"."user_id" = $1 LIMIT $2[0m  [["user_id", 18], ["LIMIT", 1]]
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 18], ["LIMIT", 11]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (1.9ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 18]]
+  Rendered users/show.html.erb within layouts/application (5.6ms)
+  Rendered users/_menu.html.erb (1.5ms)
+Completed 200 OK in 69ms (Views: 43.5ms | ActiveRecord: 10.2ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2017-07-11 16:25:19 -0400
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"pJmHzEvka6tl57wMeEoj0VreLM4QRNepn+1+vUleE9Z336XHF4U7RJ8vp6KDuCFNqLDD5dNgj+tXER9ORsb97Q=="}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 63ms (ActiveRecord: 8.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-07-11 16:25:19 -0400
+Processing by UsersController#home as HTML
+  Rendering users/home.html.erb within layouts/application
+  Rendered users/home.html.erb within layouts/application (0.8ms)
+  Rendered users/_menu.html.erb (2.1ms)
+Completed 200 OK in 44ms (Views: 40.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-07-11 16:25:21 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (3.1ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (11.0ms)
+  Rendered users/_menu.html.erb (1.9ms)
+Completed 200 OK in 76ms (Views: 74.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2017-07-11 16:25:27 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Q0wrgAv2lx/x8eo1wX/aURs0AdT8frS5uHELY8H+D7bcjZtxc3pcqFt1VPag0f10dfaSZLN0OdqGJkhzCgOjig==", "user"=>{"username"=>"", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Q0wrgAv2lx/x8eo1wX/aURs0AdT8frS5uHELY8H+D7bcjZtxc3pcqFt1VPag0f10dfaSZLN0OdqGJkhzCgOjig==", "user"=>{"username"=>"", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (2.1ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (10.2ms)
+  Rendered users/_menu.html.erb (1.3ms)
+Completed 200 OK in 228ms (Views: 51.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2017-07-11 16:26:57 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/t6Ce8A3kQ9qKnACaeQdvZXUk8CsYGJ+arNIgYSW1uQUVNu/WShczmcdYYwOZ5MWX8HkuQ5ioYLgLXiqDQgS9w==", "user"=>{"username"=>"mike33", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["username", "mike33"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = $1, "last_sign_in_at" = $2, "sign_in_count" = $3, "updated_at" = $4 WHERE "users"."id" = $5[0m  [["current_sign_in_at", "2017-07-11 20:26:57.343017"], ["last_sign_in_at", "2017-07-11 20:15:07.259920"], ["sign_in_count", 4], ["updated_at", "2017-07-11 20:26:57.344322"], ["id", 18]]
+  [1m[35m (162.5ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 417ms (ActiveRecord: 171.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-07-11 16:26:57 -0400
+Processing by UsersController#home as HTML
+  Rendering users/home.html.erb within layouts/application
+  Rendered users/home.html.erb within layouts/application (0.5ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendered users/_menu.html.erb (3.9ms)
+Completed 200 OK in 34ms (Views: 30.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/18" for 127.0.0.1 at 2017-07-11 16:26:59 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"18"}
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mUser Load (4.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mAddress Load (0.3ms)[0m  [1m[34mSELECT  "addresses".* FROM "addresses" WHERE "addresses"."user_id" = $1 LIMIT $2[0m  [["user_id", 18], ["LIMIT", 1]]
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 18], ["LIMIT", 11]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 18]]
+  Rendered users/show.html.erb within layouts/application (4.5ms)
+  Rendered users/_menu.html.erb (1.2ms)
+Completed 200 OK in 99ms (Views: 32.7ms | ActiveRecord: 17.5ms)
+
+
+Started GET "/users/18/addresses/new" for 127.0.0.1 at 2017-07-11 16:27:00 -0400
+Processing by AddressesController#new as HTML
+  Parameters: {"user_id"=>"18"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering addresses/new.html.erb within layouts/application
+  Rendered addresses/_form.html.erb (3.9ms)
+  Rendered addresses/new.html.erb within layouts/application (6.9ms)
+  Rendered users/_menu.html.erb (1.3ms)
+Completed 200 OK in 65ms (Views: 38.8ms | ActiveRecord: 4.7ms)
+
+
+Started POST "/users/18/addresses" for 127.0.0.1 at 2017-07-11 16:27:01 -0400
+Processing by AddressesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"q7wLrf2oypKAPSClHPij5ZHbsrt6Amvd+nPduwZ55qed9HgpZnPB9jvNXKTwl9ZJvreTdnwYHErkY6z7QdR1mQ==", "address"=>{"street"=>"", "city"=>"", "state"=>"", "zip"=>"", "user_id"=>"18"}, "commit"=>"Add Address", "user_id"=>"18"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  Rendering addresses/new.html.erb within layouts/application
+  Rendered addresses/_form.html.erb (214.0ms)
+  Rendered addresses/new.html.erb within layouts/application (217.3ms)
+Completed 500 Internal Server Error in 241ms (ActiveRecord: 1.4ms)
+
+
+  
+ActionView::Template::Error (undefined method `addresses_path' for #<#<Class:0x007f9850fea2f0>:0x007f9851142850>
+Did you mean?  user_address_path):
+    2: 
+    3: <%= puts "*** @user: #{@user.inspect} ***" %>
+    4: 
+    5: <%= form_for([@user, @address]) do |form| %>
+    6: 
+    7:     <div class="actions">
+    8:         <!-- street, city, state, zip -->
+  
+app/views/addresses/_form.html.erb:5:in `_app_views_addresses__form_html_erb___116857632793419559_70146085979820'
+app/views/addresses/new.html.erb:3:in `_app_views_addresses_new_html_erb___146470719871105366_70146086013520'
+app/controllers/addresses_controller.rb:45:in `block (2 levels) in create'
+app/controllers/addresses_controller.rb:40:in `create'
+Started POST "/users/18/addresses" for 127.0.0.1 at 2017-07-11 16:27:47 -0400
+Processing by AddressesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ju/8x+6oyE6VKr9nQm6u8QZHKDJPBT4d6xLFqfnkrJ429xS5QZ9aHqdEg6chnWOrf3UOTkirpPnjKGsdNFRtCg==", "address"=>{"street"=>"big boi lane", "city"=>"washington", "state"=>"dc", "zip"=>"22001", "user_id"=>"18"}, "commit"=>"Add Address", "user_id"=>"18"}
+  [1m[36mUser Load (9.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[35m (10.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[35mSQL (7.0ms)[0m  [1m[32mINSERT INTO "addresses" ("user_id", "street", "city", "state", "zip", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["user_id", 18], ["street", "big boi lane"], ["city", "washington"], ["state", "dc"], ["zip", 22001], ["created_at", "2017-07-11 20:27:47.826545"], ["updated_at", "2017-07-11 20:27:47.826545"]]
+  [1m[35m (10.8ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/18
+Completed 302 Found in 103ms (ActiveRecord: 38.6ms)
+
+
+Started GET "/users/18" for 127.0.0.1 at 2017-07-11 16:27:47 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"18"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mAddress Load (0.2ms)[0m  [1m[34mSELECT  "addresses".* FROM "addresses" WHERE "addresses"."user_id" = $1 LIMIT $2[0m  [["user_id", 18], ["LIMIT", 1]]
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 18], ["LIMIT", 11]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 18]]
+  Rendered users/show.html.erb within layouts/application (2.7ms)
+  Rendered users/_menu.html.erb (1.1ms)
+Completed 200 OK in 49ms (Views: 28.1ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-07-11 16:27:51 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (7.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 3]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 4]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 5]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 8]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 9]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 11]]
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 12]]
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 13]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 14]]
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 15]]
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 16]]
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 17]]
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 18]]
+  Rendered users/index.html.erb within layouts/application (19.8ms)
+  Rendered users/_menu.html.erb (1.1ms)
+Completed 200 OK in 90ms (Views: 42.0ms | ActiveRecord: 17.4ms)
+
+
+Started GET "/users/18" for 127.0.0.1 at 2017-07-11 16:27:53 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"18"}
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mUser Load (10.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mAddress Load (2.4ms)[0m  [1m[34mSELECT  "addresses".* FROM "addresses" WHERE "addresses"."user_id" = $1 LIMIT $2[0m  [["user_id", 18], ["LIMIT", 1]]
+  [1m[36mPost Load (0.8ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 18], ["LIMIT", 11]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 18]]
+  Rendered users/show.html.erb within layouts/application (2.8ms)
+  Rendered users/_menu.html.erb (1.2ms)
+Completed 200 OK in 73ms (Views: 34.8ms | ActiveRecord: 19.8ms)
+
+
+Started GET "/users/18/addresses/4/edit" for 127.0.0.1 at 2017-07-11 16:27:53 -0400
+Processing by AddressesController#edit as HTML
+  Parameters: {"user_id"=>"18", "id"=>"4"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mAddress Load (0.4ms)[0m  [1m[34mSELECT  "addresses".* FROM "addresses" WHERE "addresses"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering addresses/edit.html.erb within layouts/application
+  Rendered addresses/_form.html.erb (2.7ms)
+  Rendered addresses/edit.html.erb within layouts/application (5.6ms)
+  Rendered users/_menu.html.erb (1.2ms)
+Completed 200 OK in 72ms (Views: 41.3ms | ActiveRecord: 3.8ms)
+
+
+Started PATCH "/users/18/addresses/4" for 127.0.0.1 at 2017-07-11 16:28:03 -0400
+Processing by AddressesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"tv0jrJdEQTrHF8Kr00hgevgNbeXMFtiAeCd+9ONbErbaGN8rghyiovK2p3DSIUKYiQMj82gmqI6xDLpU2y0nVQ==", "address"=>{"street"=>"", "city"=>"washington", "state"=>"dc", "zip"=>"22001", "user_id"=>"18"}, "commit"=>"Add Address", "user_id"=>"18", "id"=>"4"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mAddress Load (0.3ms)[0m  [1m[34mSELECT  "addresses".* FROM "addresses" WHERE "addresses"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[35m (1.4ms)[0m  [1m[31mROLLBACK[0m
+  Rendering addresses/edit.html.erb within layouts/application
+  Rendered addresses/_form.html.erb (178.3ms)
+  Rendered addresses/edit.html.erb within layouts/application (181.3ms)
+Completed 500 Internal Server Error in 203ms (ActiveRecord: 2.6ms)
+
+
+  
+ActionView::Template::Error (undefined method `address_path' for #<#<Class:0x007f9850fea2f0>:0x007f984aeaf5a8>
+Did you mean?  asset_path):
+    2: 
+    3: <%= puts "*** @user: #{@user.inspect} ***" %>
+    4: 
+    5: <%= form_for([@user, @address]) do |form| %>
+    6: 
+    7:     <div class="actions">
+    8:         <!-- street, city, state, zip -->
+  
+app/views/addresses/_form.html.erb:5:in `_app_views_addresses__form_html_erb___116857632793419559_70146052150760'
+app/views/addresses/edit.html.erb:3:in `_app_views_addresses_edit_html_erb___3307534667069854677_70146034297580'
+app/controllers/addresses_controller.rb:60:in `block (2 levels) in update'
+app/controllers/addresses_controller.rb:55:in `update'
+Started GET "/users/18" for 127.0.0.1 at 2017-07-11 16:31:03 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"18"}
+  [1m[36mUser Load (9.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mUser Load (3.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mAddress Load (0.4ms)[0m  [1m[34mSELECT  "addresses".* FROM "addresses" WHERE "addresses"."user_id" = $1 LIMIT $2[0m  [["user_id", 18], ["LIMIT", 1]]
+  [1m[36mPost Load (3.6ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 18], ["LIMIT", 11]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 18]]
+  Rendered users/show.html.erb within layouts/application (3.6ms)
+  Rendered users/_menu.html.erb (1.2ms)
+Completed 200 OK in 64ms (Views: 30.2ms | ActiveRecord: 17.8ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-07-11 16:31:04 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 3]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 4]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 5]]
+  [1m[36mPost Load (0.9ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 8]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 9]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 11]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 12]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 13]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 14]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 15]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 16]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 17]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 18]]
+  Rendered users/index.html.erb within layouts/application (28.8ms)
+  Rendered users/_menu.html.erb (1.2ms)
+Completed 200 OK in 72ms (Views: 57.1ms | ActiveRecord: 6.5ms)
+
+
+Started GET "/feed" for 127.0.0.1 at 2017-07-11 16:31:05 -0400
+Processing by UsersController#feed as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering users/feed.html.erb within layouts/application
+  Rendered users/feed.html.erb within layouts/application (0.6ms)
+  Rendered users/_menu.html.erb (1.3ms)
+Completed 200 OK in 62ms (Views: 44.5ms | ActiveRecord: 1.3ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2017-07-11 16:44:32 -0400
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"1TYfH888GvQ2UORv7Dkt7RCu5iavklg7K1jA5C46dOJtLvdhYAuIpAQ+2K+PyuC3aZzAWqg8wt8jYm5Q44q1dg=="}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 8ms (ActiveRecord: 1.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-07-11 16:44:32 -0400
+Processing by UsersController#home as HTML
+  Rendering users/home.html.erb within layouts/application
+  Rendered users/home.html.erb within layouts/application (0.5ms)
+  Rendered users/_menu.html.erb (1.4ms)
+Completed 200 OK in 44ms (Views: 39.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2017-07-11 16:44:33 -0400
+Processing by RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/registrations/new.html.erb within layouts/application (1.8ms)
+Completed 500 Internal Server Error in 35ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/Nobre/Desktop/Homework/Ruby/Rails/MPP_RailsBlogAlpha/app/views/devise/registrations/new.html.erb:10: syntax error, unexpected tIDENTIFIER, expecting ')'
+ class: "data-value" autofocus: true );@output_buffer.safe_a
+                              ^):
+  
+app/views/devise/registrations/new.html.erb:10: syntax error, unexpected tIDENTIFIER, expecting ')'
+Started GET "/users/sign_up" for 127.0.0.1 at 2017-07-11 16:44:54 -0400
+Processing by RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.1ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (8.1ms)
+  Rendered users/_menu.html.erb (1.2ms)
+Completed 200 OK in 61ms (Views: 59.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2017-07-11 16:46:57 -0400
+Processing by RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.3ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (8.2ms)
+  Rendered users/_menu.html.erb (1.3ms)
+Completed 200 OK in 61ms (Views: 58.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2017-07-11 16:46:59 -0400
+Processing by RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.2ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (8.0ms)
+  Rendered users/_menu.html.erb (1.6ms)
+Completed 200 OK in 61ms (Views: 59.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2017-07-11 16:50:17 -0400
+Processing by RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.2ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (8.0ms)
+  Rendered users/_menu.html.erb (1.3ms)
+Completed 200 OK in 75ms (Views: 60.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2017-07-11 16:50:30 -0400
+Processing by RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.4ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (10.9ms)
+  Rendered users/_menu.html.erb (1.9ms)
+Completed 200 OK in 72ms (Views: 71.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-07-11 17:22:07 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.5ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (7.6ms)
+  Rendered users/_menu.html.erb (1.3ms)
+Completed 200 OK in 68ms (Views: 66.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2017-07-11 17:22:17 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"4uWhJigTbnpM6JJ0tivwybbhkrDUbDXO507wImUHtUGlw0rDrZ2nWp2S+lhMcDd9gxSD41KPc+ugxftPKNG+yQ==", "user"=>{"username"=>"mike33", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["username", "mike33"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = $1, "last_sign_in_at" = $2, "sign_in_count" = $3, "updated_at" = $4 WHERE "users"."id" = $5[0m  [["current_sign_in_at", "2017-07-11 21:22:18.125084"], ["last_sign_in_at", "2017-07-11 20:26:57.343017"], ["sign_in_count", 5], ["updated_at", "2017-07-11 21:22:18.126213"], ["id", 18]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 183ms (ActiveRecord: 1.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-07-11 17:22:18 -0400
+Processing by UsersController#home as HTML
+  Rendering users/home.html.erb within layouts/application
+  Rendered users/home.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendered users/_menu.html.erb (4.8ms)
+Completed 200 OK in 34ms (Views: 30.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/18/posts/new" for 127.0.0.1 at 2017-07-11 17:22:19 -0400
+Processing by PostsController#new as HTML
+  Parameters: {"user_id"=>"18"}
+  [1m[36mUser Load (5.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mUser Load (7.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (2.8ms)
+  Rendered posts/new.html.erb within layouts/application (6.0ms)
+  Rendered users/_menu.html.erb (1.2ms)
+Completed 200 OK in 62ms (Views: 36.7ms | ActiveRecord: 13.1ms)
+
+
+Started GET "/users/18" for 127.0.0.1 at 2017-07-11 17:22:21 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"18"}
+  [1m[36mUser Load (13.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mUser Load (5.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mAddress Load (0.3ms)[0m  [1m[34mSELECT  "addresses".* FROM "addresses" WHERE "addresses"."user_id" = $1 LIMIT $2[0m  [["user_id", 18], ["LIMIT", 1]]
+  [1m[36mPost Load (0.8ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 18], ["LIMIT", 11]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 18]]
+  Rendered users/show.html.erb within layouts/application (3.6ms)
+  Rendered users/_menu.html.erb (1.2ms)
+Completed 200 OK in 80ms (Views: 32.6ms | ActiveRecord: 21.7ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-07-11 17:22:21 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 3]]
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 4]]
+  [1m[36mPost Load (1.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 5]]
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 8]]
+  [1m[36mPost Load (0.8ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 9]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 11]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 12]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 13]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 14]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 15]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 16]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 17]]
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 18]]
+  Rendered users/index.html.erb within layouts/application (36.8ms)
+  Rendered users/_menu.html.erb (1.3ms)
+Completed 200 OK in 77ms (Views: 59.0ms | ActiveRecord: 8.2ms)
+
+
+Started GET "/users/18" for 127.0.0.1 at 2017-07-11 17:22:22 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"18"}
+  [1m[36mUser Load (6.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mAddress Load (0.3ms)[0m  [1m[34mSELECT  "addresses".* FROM "addresses" WHERE "addresses"."user_id" = $1 LIMIT $2[0m  [["user_id", 18], ["LIMIT", 1]]
+  [1m[36mPost Load (2.6ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 18], ["LIMIT", 11]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 18]]
+  Rendered users/show.html.erb within layouts/application (4.1ms)
+  Rendered users/_menu.html.erb (1.4ms)
+Completed 200 OK in 77ms (Views: 33.7ms | ActiveRecord: 11.6ms)
+
+
+Started GET "/users/18/addresses/new.4" for 127.0.0.1 at 2017-07-11 17:22:23 -0400
+Processing by AddressesController#new as 
+  Parameters: {"user_id"=>"18"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering addresses/new.html.erb within layouts/application
+  Rendered addresses/_form.html.erb (3.1ms)
+  Rendered addresses/new.html.erb within layouts/application (32.7ms)
+  Rendered users/_menu.html.erb (1.4ms)
+Completed 200 OK in 141ms (Views: 106.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/18" for 127.0.0.1 at 2017-07-11 17:22:25 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"18"}
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mUser Load (6.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mUser Load (10.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mAddress Load (0.5ms)[0m  [1m[34mSELECT  "addresses".* FROM "addresses" WHERE "addresses"."user_id" = $1 LIMIT $2[0m  [["user_id", 18], ["LIMIT", 1]]
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."user_id" = $1 LIMIT $2[0m  [["user_id", 18], ["LIMIT", 11]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 18]]
+  Rendered users/show.html.erb within layouts/application (3.1ms)
+  Rendered users/_menu.html.erb (1.3ms)
+Completed 200 OK in 71ms (Views: 32.4ms | ActiveRecord: 21.3ms)
+
+
+Started GET "/users/18/addresses/4/edit" for 127.0.0.1 at 2017-07-11 17:22:27 -0400
+Processing by AddressesController#edit as HTML
+  Parameters: {"user_id"=>"18", "id"=>"4"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mAddress Load (0.7ms)[0m  [1m[34mSELECT  "addresses".* FROM "addresses" WHERE "addresses"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering addresses/edit.html.erb within layouts/application
+  Rendered addresses/_form.html.erb (5.1ms)
+  Rendered addresses/edit.html.erb within layouts/application (8.4ms)
+  Rendered users/_menu.html.erb (1.4ms)
+Completed 200 OK in 62ms (Views: 48.6ms | ActiveRecord: 2.0ms)
+
+

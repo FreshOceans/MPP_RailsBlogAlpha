@@ -1,20 +1,21 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!, except: [:home]
 
   # == GET /home
   def home
     puts "\n******** home ********"
+    current_user = nil
+    puts "*** current_user.inspect: #{current_user.inspect} ***"
     @users = User.all
-    # puts "\n******** session ********"
-    # puts "*** sessions.inspect: #{sessions.inspect} ***"
+    puts "*** current_user.inspect: #{current_user.inspect} ****"
+    # puts "*** current_user[:id].inspect: #{current_user[:id].inspect} ****"
   end
 
   # == GET /feed
   def feed
     puts "\n******** feed ********"
-    @user = User.find(session[:user_id])
-
+    @user = User.find(current_user.id)
   end
 
   # == GET /login_form
@@ -29,8 +30,8 @@ class UsersController < ApplicationController
   #     @user = User.where(username: params[:username]).first
   #       if @user
   #           if @user.password == params[:password]
-  #               session[:user_id] = @user.id
-  #               puts "** session[:user_id], #{session[:user_id]} **"
+  #               current_user = @user.id
+  #               puts "** current_user, #{current_user} **"
   #               @current_user = get_current_user
   #               flash[:notice] = "You've been logged in successfully."
   #               redirect_to '/feed'
@@ -47,20 +48,20 @@ class UsersController < ApplicationController
   # == GET /logout
   # def logout
   #   puts "\n******* logout *******"
-  #   session[:user_id] = nil
+  #   current_user = nil
   # 	flash[:notice] = "You've been logged out successfully."
   # 	redirect_to '/'
   # end
 
   # == get_current_user
-  def get_current_user
-      puts "\n******* get_current_user *******"
-      if session[:user_id]
-          return User.find(session[:user_id])
-      else
-          puts "** NO CURRENT USER **"
-      end
-  end
+  # def get_current_user
+  #     puts "\n******* get_current_user *******"
+  #     if current_user
+  #         return User.find(current_user)
+  #     else
+  #         puts "** NO CURRENT USER **"
+  #     end
+  # end
 
   # GET /users
   # GET /users.json
@@ -80,6 +81,8 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     puts "*** @user.inspect, #{@user.inspect} ***"
+    puts "*** params.inspect, #{params.inspect} ***"
+    @user = User.find(params[:id])
     @post = Post.new
     @posts = @user.posts
     @addresses = Address.all
@@ -95,8 +98,8 @@ class UsersController < ApplicationController
   end
 
   # GET /users/1/edit
-  def edit
-  end
+  # def edit
+  # end
 
   # POST /users
   # POST /users.json
@@ -108,7 +111,7 @@ class UsersController < ApplicationController
       if @user.save
         format.html { redirect_to '/feed', notice: 'You have successfully created an account.' }
         format.json { render :show, status: :created, location: @user }
-        session[:user_id] = @user.id
+        current_user = @user.id
       else
         format.html { render :new }
         format.json { render json: @user.errors, status: :unprocessable_entity }
@@ -136,7 +139,7 @@ class UsersController < ApplicationController
   def destroy
     puts "\n******** destroy_user ********"
     @user.destroy
-    session[:user_id] = nil
+    current_user = nil
     flash[:notice] = 'User was successfully deleted.'
     redirect_to '/'
   end
@@ -145,13 +148,13 @@ class UsersController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_user
         puts "\n******** set_user ********"
-        @user = User.find(params[:id])
+        @user = User.find(current_user.id)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
         puts "\n******** user_params ********"
-        params.require(:user).permit(:fname, :lname, :email, :username, :password, :password_confirmation, :email_confirmation)
+        # params.require(:user).permit(:fname, :lname, :email, :username, :password, :password_confirmation, :email_confirmation)
         #   params.fetch(:user, {})
     end
 end

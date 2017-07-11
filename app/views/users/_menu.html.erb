@@ -1,15 +1,13 @@
 <!-- ======= views/menu ======= -->
 
+
 <div id="menu">
-
-    <% puts "**** session[:user_id]: #{session[:user_id]} ****" %>
-
-    <% if session[:user_id] %>
+    <% if current_user %>
         <%= link_to 'Feed', feed_path, class: "menu_item" %>
         <%= link_to 'Directory', users_path, class: "menu_item" %>
-        <%= link_to 'Profile', user_path(session[:user_id]), class: "menu_item" %>
-        <%= link_to 'Publish', new_user_post_path(session[:user_id]), class: "menu_item" %>
-        <%= link_to 'Signout', destroy_user_session_path, class: "menu_item" %>
+        <%= link_to 'Profile', user_path(current_user.id), class: "menu_item" %>
+        <%= link_to 'Publish', new_user_post_path(current_user.id), class: "menu_item" %>
+        <%= link_to 'Signout', destroy_user_session_path, method: :delete, class: "menu_item" %>
     <% else %>
         <%= link_to 'Home', "/", class: "menu_item" %>
         <%= link_to 'Signin', new_user_session_path, class: "menu_item" %>

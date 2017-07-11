@@ -17,7 +17,7 @@ class AddressesController < ApplicationController
   def new
     puts "\n******** new_address ********"
     @address = Address.new
-    @user = User.find(session[:user_id])
+    @user = User.find(current_user.id)
     puts "*** @user.inspect: #{@user.inspect} ***"
     puts "*** @address.inspect: #{@address.inspect} ***"
 

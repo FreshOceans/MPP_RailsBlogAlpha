@@ -17,7 +17,7 @@ class CommentsController < ApplicationController
   def new
     puts "\n******** new_comment ********"
     puts "*** params.inspect: #{params.inspect} ***"
-    @user = User.find(session[:user_id])
+    @user = User.find(current_user)
     # @post = Post.find(params[:post_id])
     @post1 = Post.new
     puts "*** @comment.inspect: #{@comment.inspect} ***"
@@ -33,7 +33,7 @@ class CommentsController < ApplicationController
   def create
     puts "\n******** create_comment ********"
     @comment = Comment.new(comment_params)
-    @user = User.find(session[:user_id])
+    @user = User.find(current_user)
 
     # puts "\n**** params.inspect #{params.inspect}"
     puts "**** params[:comment].inspect #{params[:comment].inspect}"

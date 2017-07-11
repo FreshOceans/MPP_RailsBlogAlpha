@@ -15,7 +15,7 @@ class PostsController < ApplicationController
   def show
     puts "\n******** show_posts ********"
     puts "*** params.inspect: #{params.inspect} ***"
-    @user = User.find(session[:user_id])
+    @user = User.find(current_user.id)
     @comment = Comment.new
     @comments = @user.comments
   end
@@ -24,7 +24,7 @@ class PostsController < ApplicationController
   def new
     puts "\n******** new_post ********"
     @post = Post.new
-    @user = User.find(session[:user_id])
+    @user = User.find(current_user.id)
     puts "*** @user.inspect: #{@user.inspect} ***"
   end
 

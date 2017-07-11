@@ -2,6 +2,12 @@ Rails.application.routes.draw do
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
+  # route format for customized controllers with devise functionality
+  # devise_for :users, :controllers => { registrations: 'registrations' }
+
+  # == devise routes
+  devise_for :users
+
   # == custom routes
   # get "/" => "home#home"
   root to: "users#home"
@@ -10,8 +16,7 @@ Rails.application.routes.draw do
   # post "/login" => "users#login"
   # get "/logout" => "users#logout"
 
-  # == devise routes
-  devise_for :users
+
 
   # == RESTful routes
   resources :users do
